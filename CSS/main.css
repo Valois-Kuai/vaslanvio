@@ -1,0 +1,156 @@
+@keyframes tavenkosvion{
+    0% {
+        opacity:0;
+        transform:translateY(-20vh);
+    }
+
+    100%{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes kankinkosvion{
+    0%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes ven0kosvion{
+    0%{
+        opacity:0;
+        transform:translateY(-150%); 
+    }
+    100%{
+        opacity:1;
+        transform:translateY(-200%);
+    }
+}
+
+@keyframes huatiomevion1kosvion{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+html,body{
+    margin:0;
+    height:100%;
+    background-color:rgba(0,0,0,1);
+}
+
+body{
+    font-family:"vaslanvio";
+    letter-spacing:0.5px;
+    color:rgba(255,255,255,1);
+}
+
+:root{
+    --tenvys: clamp(24px,10vw,96px);
+}
+
+.taven{
+    position:fixed;
+    z-index:1;
+    left:0%;
+    width:100vw;
+    font-size:clamp(24px, 10vw, 96px);
+    transform: translateY(-20vh);
+    opacity:0;
+    text-align: center;
+    animation: tavenkosvion 1s ease-in-out forwards;
+    animation-delay:0.5s;
+    margin:0;
+    will-change: transform;
+}
+
+
+
+#taven0{
+    top:60px;
+}
+#taven1{
+    font-size:calc(var(--tenvys) + 16px);
+    top:calc(var(--tenvys) + 46px);
+}
+#taven2{
+    top:calc(60px + 2 * var(--tenvys));
+}
+
+
+
+#huatiomevion{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,1);
+    z-index:2;
+}
+#huatiomevion1{
+    position:fixed;
+    opacity:0;
+    inset:0;
+    background:rgba(255,255,255,1);
+    z-index:0;
+}
+
+.kankin{
+    
+    position:fixed;
+    opacity:0;
+    z-index:1;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(5*var(--tenvys));
+    height: calc(1.2*var(--tenvys));
+    color:white;
+    font-size:calc(0.5*var(--tenvys));
+    font-family:"vaslanvio";
+    text-decoration:none;
+    background-color:black;
+    border-width:4px;
+    border-color:white;
+    user-select:none;
+    border-style:solid;
+    animation: kankinkosvion 1s ease-in-out forwards;
+    animation-delay:1s;
+}
+
+.kankin:active{
+    color:rgba(255,255,255,0.5);
+    border-color:rgba(255,255,255,0.5);
+}
+
+#kankin0{
+    top:calc(10px + 4.5 * var(--tenvys));
+}
+
+#kankin1{
+    top:calc(10px + 6 * var(--tenvys))
+}
+
+#kankin2{
+    top:calc(10px + 7.5 * var(--tenvys));
+}
+
+#ven0{
+    position:fixed;
+    opacity:0;
+    color:white;
+    left:0%;
+    transform:translateY(-200%);
+    top:100vh;
+    width:100vw;
+    text-align:center;
+    font-size:calc(0.25*var(--tenvys));
+    animation: ven0kosvion 0.5s ease-in-out forwards;
+    animation-delay:1.5s;
+}
+
+/*你好*/
