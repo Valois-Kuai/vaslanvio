@@ -41,7 +41,7 @@ function cor(){
     setTimeout(()=>{window.location.href="cor.html";},500);
 }
 function qq(){
-    alert("QQ群号为1053556105，欢迎加入！");
+    alert("QQ群号为1053556105，欢迎加入！大家一起来发展人类语！");
 }
 
 KanKin0.onclick=cor;
