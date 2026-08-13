@@ -1,6 +1,8 @@
 const e = {};
 document.querySelectorAll('[id]').forEach(el => e[el.id] = el);  //看不懂です
 
+var coursenumber = Object.keys(e).filter(key => key.startsWith('course')).length -1; //这句是AI写的
+
 //button0是用来更改top蓝条的样式的，0为down,1为up
 //button1用来回到主页
 var button0state = 0;
@@ -10,7 +12,6 @@ if(temp != null){
 }
 
 function strtonumber(temp){
-    temp.toUpperCase();
     temp = parseInt(temp,16);
     return temp;
 }
@@ -21,7 +22,34 @@ if(temp != null){
 }
 
 function checkcourseprogress(){
-    
+    for(var i=0;i<= coursenumber - 1; i++){
+        if(i<courseprogress){
+            e[`course${i}`].style.background = "rgba(145,208,197,1)";
+            e[`course${i}`].style.borderColor = "rgba(145,208,197,1)";
+        }
+        else if(i==courseprogress){
+            e[`course${i}`].style.background = "rgba(255,218,26,1)";
+            e[`course${i}`].style.borderColor = "rgba(255,218,26,1)";
+        }
+        else if(i>courseprogress){
+            e[`course${i}`].style.background = "rgba(158,152,147,1)";
+            e[`course${i}`].style.borderColor = "rgba(158,152,147,1)";
+            e[`course${i}`].style.pointerEvents = "none";
+        }
+    }
+}
+
+function drawlinebetweenbutton(a){
+    var coordinate0 = e[`course${a}`].getBoundingClientRect();
+    var coordinate1 = e[`course${a+1}`].getBoundingClientRect();
+    var coordinatesvg = e[`line${a}`].getBoundingClientRect();
+
+    var x1 = coordinate0.left + coordinate0.width*0.5 - coordinatesvg.left;
+    var y1 = coordinate0.top + coordinate0.height - 4 - coordinatesvg.top;
+    var x2 = coordinate1.left + coordinate1.width*0.5- coordinatesvg.left;
+    var y2 = coordinate1.top + 4 - coordinatesvg.top;
+
+    e[`line${a}`].innerHTML = `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#C8C8C8" stroke-width="4"/>`;
 }
 
 function checkbutton0state(){    //不想按shift了，变量名全小写罢
@@ -82,4 +110,47 @@ e.button1.onclick = () => {
     setTimeout(()=>{window.location.href="main.html";},500);
 }
 
-e.toptext1.textContent = `当前的课程进度代码为：${courseprogress}`;
+var showcourseprogress = courseprogress.toString(16).toUpperCase().padStart(2,"0");
+e.toptext1.textContent = `当前的课程进度代码为：${showcourseprogress}`;
+
+function drawline(){
+    for(var i=0; i <= coursenumber - 2; i++){
+        drawlinebetweenbutton(i);
+    }
+}
+
+e.toptext.addEventListener("keydown",()=>{
+    if(event.key=="Enter"){
+        var temp = strtonumber(e.toptext.value);
+        if(!isNaN(temp)){
+            courseprogress = temp;
+            checkcourseprogress();
+            e.toptext.value = "";
+        }
+        else{
+            alert("Error: 无法转化的课程进度代码");
+            courseprogress = 0;
+            e.toptext.value = "";
+        }
+        localStorage.setItem('courseprogress', courseprogress);
+        var showcourseprogress = courseprogress.toString(16).toUpperCase().padStart(2,"0");
+        e.toptext1.textContent = `当前的课程进度代码为：${showcourseprogress}`;
+    }
+});
+
+for(let i=0;i <= coursenumber-1;i++){  //AI告诉我let是一个语法糖？而var在这里不能用，天哪
+    e[`course${i}`].onclick = ()=>{
+    e.whitemask1.style.zIndex="16";
+    e.whitemask1.style.display="";
+    e.whitemask1.style.animation="whitemaskkosvion1 0.5s ease-in forwards";
+    setTimeout(()=>{window.location.href=`./course/cor${i}.html`;},500);
+}
+}
+
+
+
+window.addEventListener('load', drawline);
+window.addEventListener('resize', drawline);
+checkcourseprogress();
+
+//我觉得纯AI代码不超过5%罢，完全胜利ですわ
