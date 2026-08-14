@@ -1,0 +1,16 @@
+@font-face{
+    font-family:"vaslanvio";
+    src: url("../../font/SmileySans-Oblique.ttf.woff2") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+    unicode-range: U+0000-U+005A,U+005C,U+005E-007F,U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
+    font-display:swap;
+}
+@font-face{
+    font-family:"vaslanvio";
+    src: url("../../font/vaslanvio.ttf") format("truetype");
+    font-weight:normal;
+    font-style:normal;
+    unicode-range: U+005B,U+005D,U+E000-F8FF;
+    font-display:fallback;
+}

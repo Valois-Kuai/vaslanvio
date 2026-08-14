@@ -132,9 +132,10 @@ e.toptext.addEventListener("keydown",()=>{
             courseprogress = 0;
             e.toptext.value = "";
         }
-        localStorage.setItem('courseprogress', courseprogress);
+        
         var showcourseprogress = courseprogress.toString(16).toUpperCase().padStart(2,"0");
         e.toptext1.textContent = `当前的课程进度代码为：${showcourseprogress}`;
+        localStorage.setItem('courseprogress', showcourseprogress);
     }
 });
 
