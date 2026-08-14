@@ -14,7 +14,6 @@ function changet(){
         cnumber = Object.keys(e).filter(key => key.startsWith(`t${tprogress}c`)).length;
         upgradebutton();
         e[`at${tprogress}`].style.display="flex";
-        e[`at${tprogress}`].style.transform="translateX(-100%)";
         e[`at${tprogress}`].style.animation="tin 0.5s ease-in-out forwards";
         e[`at${tprogress-1}`].style.animation="tout 0.5s ease-in-out forwards";
         setTimeout(()=>{e[`at${tprogress-1}`].style.display="none";},500);
@@ -51,7 +50,7 @@ for(let i=0;i<=cnumber-1;i++){
 
 e.check.onclick=()=>{
     
-    if(JSON.stringify(giveanswer) === e[`t${tprogress}a`].getAttribute("data-answer")){
+    if(e[`t${tprogress}a`].getAttribute("data-answer").split("|").includes(JSON.stringify(giveanswer))){
         if(tprogress < tnumber){
             changet();
         }

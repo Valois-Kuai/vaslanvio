@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>第三课：咖啡或茶</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" href="./CSS/corfont.css"/>
+        <link rel="stylesheet" type="text/css" href="./CSS/cor0.css"/>
+    </head>
+    <body>
+        <div id="nt" data-nt="2"></div> <!--改一下这里-->
+        <div id="textzone">
+            <h1>咖啡或茶</h1>
+            <p>今天我们来学习人类语中有关于逻辑的词，这些词一般都在n行</p>
+            <p>仍然假定我们都有了“人类语.xlsx”，如果没有的话可以在主页的“相关文件”里下载。</p>
+            <p>其实就算不是最新版的.xlsx文件也行，因为除了新增词语和例句，这个文件的内容几乎是不变的。</p>
+            <p>所以根据.xlsx，人类语有如下的逻辑词：</p>
+            <p><span>&#xe048;</span>与(na)，<span>&#xe049;</span>或(ni)，<span>&#xe04a;</span>从句指示词(nu)，<span>&#xe04b;</span>非(ne)，<span>&#xe04c;</span>从属(no)<br/>
+            <span>&#xe054;</span>形容(non)，<span>&#xe04f;</span>承接(nus)</p>
+            <p>至于像“因为”“所以”“虽然”“但是”这些词语，并不是很需要再成列一遍了。</p>
+            <p>说到<span>&#xe049;</span>这个词（字），学过数电的同学就发现了，这不是或门（Or gate）吗？</p>
+            <p>但这个<span>&#xe049;</span>与数电中的或门有微小的区别。</p>
+            <p>假如是“A 或门 B”，那么A,B同时为“真”（同时存在）也为“A 或门 B”的一种状态。</p>
+            <p>（抱歉上一句可能不是很直观，就是说，如果我同时吃土豆和番茄，我也可以说：我吃土豆“或门”番茄。）</p>
+            <p>但这里的<span>&#xe049;</span>只是一般口语中的“或”。（数电中的“异或”）</p>
+            <p>因为如果A,B同时为真，那就直接用<span>&#xe048;</span>好了。</p>
+            <p>说到从句指示词<span>&#xe04a;</span>，我需要提一句。</p>
+            <p>人类语的从句是在所修饰的词后面的，副词也在后面，但形容词一般在前面。</p>
+            <p>看起来似乎很像英语的语法，不过确实是对于国际辅助语来说最好的选择了。</p>
+            <p>毕竟总不能为了标新立异而放弃最优解罢。</p>
+            <p>以上逻辑词里可能还会有疑问的是<span>&#xe04f;</span>（承接词）</p>
+            <p>这是用来连接两个短句的。就是如果两个句子的主语相同，同时又可能有点递进关系，就要用这个词。</p>
+            <p>例如：“神畏惧人类的团结，<span>&#xe04f;</span>让人类有了不同的语言。”</p>
+            <p>相当于英语中的and，法语的et，日语的て(?).</p>
+            <p>关于逻辑词的部分，已经讲完了。</p>
+            <p>不过，大家在看有关人类语的资料时，是否总是会看到方括号“[]”或拉丁转写里的“'”？</p>
+            <p>被方括号括起来或带有单引号的字只表音。</p>
+            <p>就像咖啡<span>[&#xe077;&#xe021;]</span>，读作“kohi”。</p>
+            <p><span>&#xe077;</span>是冷的意思，<span>&#xe021;</span>是水的意思。</p>
+            <p>但<span>[&#xe077;&#xe021;]</span>并非冷水或者直译为冷水的词语，因为它被方括号括起来了，所以只是表音。</p>
+            <p>那么我们如何表达“冷水”呢。</p>
+            <p>这个时候，就要用到逻辑词形容<span>&#xe054;</span>了。</p>
+            <p><span>&#xe054;</span>能够把字词转化为形容词，其实就类似于中文里的“的”，但是中文里的“的”兼具“从属”和“形容”的功能，人类语中，这两种功能拆开了。</p>
+            <p>以上就是第三课的全部内容，感谢观看。</p>
+        </div>
+        <div id="examzone">
+            <p id="tn">0/0</p>
+            <input id="check" type="button" value="检查"/>
+            <div id="giveanswer"></div>
+            <div class="t" id="at0">
+                <img alt="Error: 图片无法加载" src="../picture/c20.webp"/>
+                <p class="te">咖啡<br/><span style="font-size:20px;opacity:0.5">（感谢irasutoya，至少不像某些公司专门赚法律意识薄弱的人的钱）</span></p>
+                <input class="choose" type="button" id="t0c0" value="&#xe020;&#xe021;"/>
+                <input class="choose" type="button" id="t0c1" value="[&#xe020;&#xe021;]"/>
+                <input class="choose" type="button" id="t0c2" value="&#xe077;&#xe021;"/>
+                <input class="choose" type="button" id="t0c3" value="[&#xe077;&#xe021;]"/>
+                <div id="t0a" data-answer="[3]"></div>
+            </div>
+            <div class="t" id="at1">
+                <img alt="Error: 图片无法加载" src="../picture/c21.webp"/>
+                <p class="te">茶</p>
+                <input class="choose" type="button" id="t1c0" value="[&#xe024;&#xe000;]"/>
+                <input class="choose" type="button" id="t1c0" value="[&#xe001;]"/>
+
+                <div id="t1a" data-answer="[2,1,5,4]|[2,6,1,5,4]"></div>
+            </div>
+        </div>
+        <div id="whitemask0"></div>
+        <div id="whitemask1"></div>
+    </body>
+    <script src="./JS/cor0.js"></script>
+</html>
