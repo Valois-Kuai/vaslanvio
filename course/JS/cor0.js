@@ -11,8 +11,8 @@ function changet(){
     tprogress ++;
     if(tprogress < tnumber){
         e.tn.textContent= `${tprogress +1 }/${tnumber}`;
-        upgradebutton();
         cnumber = Object.keys(e).filter(key => key.startsWith(`t${tprogress}c`)).length;
+        upgradebutton();
         e[`at${tprogress}`].style.display="flex";
         e[`at${tprogress}`].style.transform="translateX(-100%)";
         e[`at${tprogress}`].style.animation="tin 0.5s ease-in-out forwards";

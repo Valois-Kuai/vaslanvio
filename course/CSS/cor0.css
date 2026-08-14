@@ -134,7 +134,7 @@ img{
    display:flex;
    justify-content:center;
    align-items:center;
-   gap: 50px;
+   gap: 5px;
    width: 100%;
    z-index:4;
 }
