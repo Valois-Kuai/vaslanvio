@@ -20,6 +20,9 @@ temp = localStorage.getItem("courseprogress");
 if(temp != null){
     courseprogress = strtonumber(temp);
 }
+else{
+    localStorage.setItem('courseprogress',"00");
+}
 
 function checkcourseprogress(){
     for(var i=0;i<= coursenumber - 1; i++){
