@@ -1,0 +1,36 @@
+html,body{
+    margin:2px;;
+    height:100%;
+    background-color:rgba(255,255,255,1);
+    
+}
+
+body{
+    font-family:"vaslanvio";
+    letter-spacing:0.5px;
+    color:rgba(0,0,0,1);
+    font-size:var(--tenvys);
+    overflow-y:auto;
+}
+
+:root{
+    --tenvys: clamp(1vh,5vw,5vh);
+}
+
+#t0{
+    height: calc(2*var(--tenvys));
+    width: 90vw;
+    margin-left:2vw;
+    font-size:calc(1.6*var(--tenvys));
+    border:4px black solid;
+}
+
+#output{
+    font-size:calc(3*var(--tenvys));
+    margin:0;
+}
+
+#ifhaveundefind{
+    color:rgba(0,0,0,0.5);
+    margin:0;
+}

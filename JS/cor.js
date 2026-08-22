@@ -122,7 +122,7 @@ function drawline(){
     }
 }
 
-e.toptext.addEventListener("keydown",()=>{
+e.toptext.addEventListener("keydown",(event)=>{
     if(event.key=="Enter"){
         var temp = strtonumber(e.toptext.value);
         if(!isNaN(temp)){

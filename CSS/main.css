@@ -44,6 +44,7 @@ html,body{
     margin:0;
     height:100%;
     background-color:rgba(0,0,0,1);
+    overflow-y:auto;
 }
 
 body{
@@ -128,15 +129,15 @@ body{
 }
 
 #kankin0{
-    top:calc(10px + 4.5 * var(--tenvys));
+    top:calc(10px + 4.2 * var(--tenvys));
 }
 
 #kankin1{
-    top:calc(10px + 6 * var(--tenvys))
+    top:calc(10px + 5.7 * var(--tenvys))
 }
 
 #kankin2{
-    top:calc(10px + 7.5 * var(--tenvys));
+    top:calc(10px + 7.2 * var(--tenvys));
 }
 
 #ven0{
