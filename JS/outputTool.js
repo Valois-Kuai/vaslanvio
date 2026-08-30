@@ -198,7 +198,14 @@ e.t0.addEventListener("keydown",(event)=>{
             
             }
             outputprepare.push(temptemp);
-
+            console.log(outputprepare);
+            for(var i in outputprepare){
+                if(outputprepare[i] == "s"){
+                    outputprepare.splice(i,1);
+                    outputprepare[i-1] = outputprepare[i-1] + "s";
+                }
+            }
+            console.log("修正后为"+outputprepare);
             
             if(outputprepare[0] ==""){
                 outputprepare.shift();
