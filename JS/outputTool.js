@@ -205,6 +205,12 @@ e.t0.addEventListener("keydown",(event)=>{
                     outputprepare[i-1] = outputprepare[i-1] + "s";
                 }
             }
+            for(var i in outputprepare){
+                if(outputprepare[i] == "n"){
+                    outputprepare.splice(i,1);
+                    outputprepare[i-1] = outputprepare[i-1] + "n";
+                }
+            }
             console.log("修正后为"+outputprepare);
             
             if(outputprepare[0] ==""){
