@@ -29,10 +29,12 @@ function checkcourseprogress(){
         if(i<courseprogress){
             e[`course${i}`].style.background = "rgba(145,208,197,1)";
             e[`course${i}`].style.borderColor = "rgba(145,208,197,1)";
+            e[`course${i}`].style.pointerEvents = "";
         }
         else if(i==courseprogress){
             e[`course${i}`].style.background = "rgba(255,218,26,1)";
             e[`course${i}`].style.borderColor = "rgba(255,218,26,1)";
+            e[`course${i}`].style.pointerEvents = "";
         }
         else if(i>courseprogress){
             e[`course${i}`].style.background = "rgba(158,152,147,1)";
@@ -139,8 +141,10 @@ e.toptext.addEventListener("keydown",(event)=>{
         var showcourseprogress = courseprogress.toString(16).toUpperCase().padStart(2,"0");
         e.toptext1.textContent = `当前的课程进度代码为：${showcourseprogress}`;
         localStorage.setItem('courseprogress', showcourseprogress);
+        
     }
 });
+
 
 for(let i=0;i <= coursenumber-1;i++){  //AI告诉我let是一个语法糖？而var在这里不能用，天哪
     e[`course${i}`].onclick = ()=>{
@@ -153,8 +157,11 @@ for(let i=0;i <= coursenumber-1;i++){  //AI告诉我let是一个语法糖？而v
 
 
 
+
+
 window.addEventListener('load', drawline);
 window.addEventListener('resize', drawline);
 checkcourseprogress();
+
 
 //我觉得纯AI代码不超过5%罢，完全胜利ですわ

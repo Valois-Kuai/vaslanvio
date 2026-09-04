@@ -174,7 +174,7 @@ html,body{
     border:0;
     padding:0;
     z-index:1;
-    height:120%; /*这里改line最多能画到的地方*/
+    height:130%; /*这里改line最多能画到的地方*/
     width:100%;
     pointer-events:none;
 }

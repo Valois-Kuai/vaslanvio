@@ -154,6 +154,7 @@ e.ifhaveundefind.style.display = "none";
 e.t0.addEventListener("keydown",(event)=>{
     if(event.key=="Enter"){
         var temp = e.t0.value;
+        e.ifhaveundefind.style.display="none";
         if(/^[\x00-\x7F]*$/.test(temp) == 1){
             var output = [];
             var outputprepare = [];
