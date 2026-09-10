@@ -54,7 +54,7 @@ body{
 }
 
 :root{
-    --tenvys: clamp(24px,10vw,96px);
+    --tenvys: clamp(24px,8vw,8vh);
 }
 
 .taven{
@@ -62,7 +62,7 @@ body{
     z-index:1;
     left:0%;
     width:100vw;
-    font-size:clamp(24px, 10vw, 96px);
+    font-size:var(--tenvys);
     transform: translateY(-20vh);
     opacity:0;
     text-align: center;
@@ -129,15 +129,15 @@ body{
 }
 
 #kankin0{
-    top:calc(10px + 4.2 * var(--tenvys));
+    top:calc(5 * var(--tenvys));
 }
 
 #kankin1{
-    top:calc(10px + 5.7 * var(--tenvys))
+    top:calc(6.4 * var(--tenvys))
 }
 
 #kankin2{
-    top:calc(10px + 7.2 * var(--tenvys));
+    top:calc(7.8 * var(--tenvys));
 }
 
 #ven0{
