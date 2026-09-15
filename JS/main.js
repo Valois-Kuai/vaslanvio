@@ -3,6 +3,7 @@ const HuaTioMeVion1 = document.getElementById("huatiomevion1")
 const KanKin0 = document.getElementById("kankin0");
 const KanKin1 = document.getElementById("kankin1");
 const KanKin2 = document.getElementById("kankin2");
+const KanKin3 = document.getElementById("kankin3");
 
 const VinNuTuaVinKosVionNo = 1200;
 const TuaVin = performance.now();
@@ -47,4 +48,9 @@ function qq(){
 KanKin0.onclick=cor;
 KanKin1.onclick=doc;
 KanKin2.onclick=qq;
+KanKin3.onclick=()=>{
+    HuaTioMeVion1KosVion();
+    setTimeout(()=>{window.location.href="./game/room.html";},500);
+}
+
 requestAnimationFrame(TuaVinKosTion);

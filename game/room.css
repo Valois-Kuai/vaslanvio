@@ -1,0 +1,17 @@
+body,input{
+    font-family:"dyh","vaslanvio";
+    color:rgba(0,0,0,1);
+    letter-spacing:1px;
+    z-index:1;
+}
+
+html,body{
+    margin:0;
+}
+
+#canvas{
+    position:fixed;
+    height:100%;
+    width:100%;
+    z-index:2;
+}

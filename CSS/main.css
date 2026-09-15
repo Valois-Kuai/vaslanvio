@@ -75,14 +75,14 @@ body{
 
 
 #taven0{
-    top:60px;
+    top:calc(1.6*var(--tenvys));
 }
 #taven1{
     font-size:calc(var(--tenvys) + 16px);
-    top:calc(var(--tenvys) + 46px);
+    top:calc(2.4*var(--tenvys));
 }
 #taven2{
-    top:calc(60px + 2 * var(--tenvys));
+    top:calc(3.8 * var(--tenvys));
 }
 
 
@@ -138,6 +138,20 @@ body{
 
 #kankin2{
     top:calc(7.8 * var(--tenvys));
+}
+#kankin3{
+    transform:translateX(0%);
+    left:0%;
+    bottom:0%;
+    height:calc(2*var(--tenvys));
+    width:calc(4.5*var(--tenvys));
+    border-color:rgba(22, 152, 43,1);
+    white-space:normal;
+    padding:2px;
+    font-size:calc(0.3*var(--tenvys));
+}
+#kankin3:active{
+    border-color:rgba(22, 152, 43,0.5);
 }
 
 #ven0{
