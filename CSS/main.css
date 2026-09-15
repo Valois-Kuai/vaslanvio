@@ -145,7 +145,7 @@ body{
     bottom:0%;
     height:calc(2*var(--tenvys));
     width:calc(4.5*var(--tenvys));
-    border-color:rgba(22, 152, 43,1);
+    border-color:rgba(255,0,0,1);
     white-space:normal;
     padding:2px;
     font-size:calc(0.3*var(--tenvys));

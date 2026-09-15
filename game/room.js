@@ -113,12 +113,73 @@ function redraw(){
   canvas.moveTo(0.22*width,(0.7+6/50)*height);
   canvas.lineTo(0.52*width,(0.7+6/50)*height);
   canvas.lineTo(0.6*width,0.7*height);
+  //canvas.moveTo(0.3*width,0.5*height);
+  //canvas.lineTo(0.6*width,0.5*height);
   canvas.lineWidth=8;
   canvas.strokeStyle="rgba(0,0,0,0.05)";
   canvas.stroke();
+  //床脚
+  canvas.beginPath();
+  canvas.moveTo(width,0.65*height);
+  canvas.lineTo(width,0.7*height);
+  canvas.lineTo((1-4/300)*width,0.72*height);
+  canvas.lineTo((1-4/300)*width,0.65*height);
+  canvas.closePath();
+  canvas.fillStyle="#745B39";
+  canvas.fill();
+  canvas.beginPath();
+  canvas.moveTo((1-4/300)*width,0.72*height);
+  canvas.lineTo(0.97*width,0.72*height);
+  canvas.lineTo(0.97*width,0.65*height);
+  canvas.lineTo((1-4/300)*width,0.65*height);
+  canvas.closePath();
+  canvas.fillStyle="#856842";
+  canvas.fill();
+  canvas.beginPath();
+  canvas.moveTo((1-7/30)*width,height);
+  canvas.lineTo((1-7/30+0.02)*width,height);
+  canvas.lineTo((1-7/30+0.02)*width,0.9*height);
+  canvas.lineTo((1-7/30)*width,0.9*height);
+  canvas.closePath();
+  canvas.fillStyle="#745B39";
+  canvas.fill();
   //床
   canvas.beginPath();
-  canvas.
+  canvas.moveTo(0.7*width,0.6*height);
+  canvas.lineTo(width,0.6*height);
+  canvas.lineTo((1-7/30)*width,(0.95)*height);
+  canvas.lineTo((0.7-7/30)*width,(0.95)*height);
+  canvas.closePath();
+  canvas.fillStyle="#7C7369";
+  canvas.fill();
+  //床的前侧面
+  canvas.beginPath();
+  canvas.moveTo((1-7/30)*width,(0.95)*height);
+  canvas.lineTo((0.7-7/30)*width,(0.95)*height);
+  canvas.lineTo((0.7-7/30)*width,height);
+  canvas.lineTo((1-7/30)*width,height);
+  canvas.closePath();
+  canvas.fillStyle="#6C635B";
+  canvas.fill();
+  //床的右侧面
+  canvas.beginPath();
+  canvas.moveTo(width,0.6*height);
+  canvas.lineTo(width,0.65*height);
+  canvas.lineTo((1-7/30)*width,height);
+  canvas.lineTo((1-7/30)*width,(0.95)*height);
+  canvas.closePath();
+  canvas.fillStyle="#5E5750";
+  canvas.fill();
+  //枕头
+  canvas.beginPath();
+  canvas.moveTo(0.7*width,0.6*height);
+  canvas.lineTo(width,0.6*height);
+  canvas.lineTo(0.95*width,(0.6+3/40)*height);
+  canvas.lineTo(0.65*width,(0.6+3/40)*height);
+  canvas.closePath();
+  canvas.fillStyle="#F5F2EC";
+  canvas.fill();
+  
 }
 
 replace();
