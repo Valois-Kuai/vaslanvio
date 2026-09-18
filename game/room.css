@@ -1,37 +1,17 @@
-body,input{
-    font-family:"vaslanvio";
-    color:rgba(0,0,0,1);
-    letter-spacing:1px;
-    z-index:1;
+#sleep{
+    right:5%;
+    top:50%;
 }
 
-html,body{
-    margin:0;
+#chest{
+    left:40%;
+    top:40%;
 }
 
-#canvas{
-    position:fixed;
-    height:100%;
-    width:100%;
-    z-index:2;
-}
-
-:root{
-    --tenvys: clamp(24px,8vw,8vh);
+#goout{
+    top:10%;
+    left:5%;
 }
 
 
-body input[type="button"]{
-    position:fixed;
-    z-index:3;
-    border: 4px solid black;
-    background: white;
-    font-size: calc(var(--tenvys));
-    margin:0;
-    padding:0;
-    width:calc(2.4*var(--tenvys));
-}
 
-body input[type="button"]:active{
-    opacity:0.5;
-}

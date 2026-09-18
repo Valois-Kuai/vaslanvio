@@ -151,7 +151,7 @@ body{
     font-size:calc(0.3*var(--tenvys));
 }
 #kankin3:active{
-    border-color:rgba(22, 152, 43,0.5);
+    opacity:0.5;
 }
 
 #ven0{

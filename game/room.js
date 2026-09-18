@@ -107,7 +107,7 @@ function redraw(){
   canvas.strokeStyle="rgba(0,0,0,0.2)";
   canvas.stroke();
   canvas.fillStyle="#F5F2EC";
-  canvas.fillRect(0.37*width-6,(0.56+6/50)*height-8,12,16);
+  canvas.fillRect(0.37*width-0.006*height,(0.56+6/50)*height-0.01*height,0.012*height,0.02*height);
   //箱子AO
   canvas.beginPath();
   canvas.moveTo(0.22*width,(0.7+6/50)*height);
@@ -118,6 +118,16 @@ function redraw(){
   canvas.lineWidth=8;
   canvas.strokeStyle="rgba(0,0,0,0.05)";
   canvas.stroke();
+  //床阴影
+  canvas.beginPath();
+  canvas.moveTo(width,0.6*height);
+  canvas.lineTo(width,0.7*height);
+  canvas.lineTo((1-7/30+0.02)*width,height);
+  canvas.lineTo((1-7/30+0.02)*width,height);
+  canvas.lineTo(0.8*width,0.6*height);
+  canvas.closePath();
+  canvas.fillStyle="rgba(0,0,0,0.05)";
+  canvas.fill();
   //床脚
   canvas.beginPath();
   canvas.moveTo(width,0.65*height);
@@ -180,7 +190,23 @@ function redraw(){
   canvas.fillStyle="#F5F2EC";
   canvas.fill();
   
+  
 }
 
-replace();
+
+
+e.sleep.onclick=()=>{
+  if(event==0 && state == 0){
+    state = 0;
+    if(sleepy >=480){
+      listofevent.push(1);
+    }
+    else{
+      listofevent.push(2);
+    }
+    clearTimeout(timer);
+    retime();
+  }
+}
+
 redraw();

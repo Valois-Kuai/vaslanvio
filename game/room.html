@@ -4,6 +4,7 @@
         <title>房间</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="../CSS/font.css"/>
+        <link rel="stylesheet" type="text/css" href="./common.css"/>
         <link rel="stylesheet" type="text/css" href="./room.css"/>
     </head>
     <body>
@@ -11,9 +12,17 @@
         <input type="button" id="sleep" value=""/>
         <input type="button" id="chest" value=""/>
         <input type="button" id="goout" value=""/>
-
+        <!--以下几个，每个html都要复制进去-->
         <input type="button" id="package" value=""/>
+        <input type="button" id="time" value=""/>
+        <input type="button" id="chinese" value="中文"/>
+        <input type="button" id="latin" value="拉丁化"/>
+        <input type="button" id="return" value="返回主页"/>
+        <div id="mask"></div>
     </body>
+    <script src="commonevent.js"></script>
+    <script src="roomevent.js"></script>
+    <script src="thing.js"></script>
     <script src="define.js"></script>
     <script src="room.js"></script>
 </html>
