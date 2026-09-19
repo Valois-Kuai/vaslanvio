@@ -14,18 +14,14 @@ var timer;
 var packagediv;var packagemain;var packagetitle;var packagevasdiv;var packagethingdiv;var packagethingmain;
 var packagecontent;
 var hatdiv;var thingdiv = [];
-var vasstatediv;
-var vasstate = [];
-var usedel;
-var use;var del;var inf; //information
+var vasstatediv;var vasstate = [];
+var usedel;var use;var del;var inf; //information
 var inftitle; var infcontent;
 var closepackage;
 var hat = localStorage.getItem("hat");
 var able = 0;
-var hatimg;
-var thingimg = [];
-var thingnumber = [];
-var vsl = "v"; //vasstatelanguage
+var hatimg;var thingimg = [];var thingnumber = [];var vsl = "v"; //vasstatelanguage
+var chestthing = JSON.parse(localStorage.getItem("chestthing"));
 
 if(hat == null || hat == "null"){
   hat = "feiz";
@@ -34,11 +30,20 @@ if(hat == null || hat == "null"){
 if(hungry == null || hungry == "null"){
   hungry = 1440;
 }
+else{
+  hungry = hungry*1;
+}
 if(thirsty == null || thirsty == "null"){
   thirsty = 1440;
 }
+else{
+  thirsty = thirsty*1;
+}
 if(sleepy == null || sleepy == "null"){
   sleepy = 960;
+}
+else{
+  sleepy = sleepy*1;
 }
 if(thing == null || thing == "null"){
   thing = {
@@ -48,7 +53,14 @@ if(thing == null || thing == "null"){
     3: {name: "", number: 0},
   }
 }
-
+if(chestthing == null || chestthing == "null"){
+  chestthing = {
+    0: {name: "", number: 0},
+  }
+  for(var i=1;i<21;i++){
+    chestthing[i] = {name: "",number:0};
+  }
+}
 
 function retime(){
   if(time == "null" || time == null){
@@ -181,6 +193,7 @@ function safe(){
   localStorage.setItem("thirsty",thirsty);
   localStorage.setItem("sleepy",sleepy);
   localStorage.setItem("thing",JSON.stringify(thing));
+  localStorage.setItem("chestthing",JSON.stringify(chestthing));
   localStorage.setItem("hat",hat);
 }
 
@@ -200,7 +213,12 @@ function give(x){
   if(thing[i].name == x){
     able = 1;
     thing[i].number++;
-    reitem();
+    if(state == "showpackage"){
+      reitem();
+    }
+    if(state == "chest"){
+      rechest();
+    }
     break;
     }
   }
@@ -210,7 +228,12 @@ function give(x){
       able = 1;
       thing[i].name = x;
       thing[i].number = 1;
-      reitem();
+      if(state == "showpackage"){
+        reitem();
+      }
+      if(state == "chest"){
+        rechest();
+      }
       break;
       }
     }
@@ -228,9 +251,8 @@ function reitem(){
     hatdiv.style.pointerEvents = "";
     if(!hatimg){
       hatimg = document.createElement("img");
-      hatdiv.appendChild(hatimg);
     }
-    
+    hatdiv.appendChild(hatimg);
     hatimg.id = "hatimg";
     hatimg.alt = "无法加载图片";
     hatimg.src = thinglist[hat].img;
@@ -272,7 +294,7 @@ function reitem(){
       }
     }
   }
-    else{
+  else{
     hatdiv.style.pointerEvents = "none";
     if(hatimg){
       hatimg.src = "../picture/nothing.webp";
@@ -285,14 +307,13 @@ function reitem(){
         thingdiv[i].style.pointerEvents = "";
         if(!thingimg[i]){
           thingimg[i] = document.createElement("img");
-          thingdiv[i].appendChild(thingimg[i]);
         }
+        thingdiv[i].appendChild(thingimg[i]);
         if(!thingnumber[i]){
           thingnumber[i] = document.createElement("div");
           thingnumber[i].className = "thingnumber";
-          thingdiv[i].appendChild(thingnumber[i]);
         }
-        
+        thingdiv[i].appendChild(thingnumber[i]);
         thingimg[i].alt = "无法加载图片";
         thingimg[i].className = "thingimg";
         thingimg[i].src = thinglist[thing[i].name].img;
@@ -371,6 +392,10 @@ function restate(){
         vasstatediv.appendChild(vasstate[i]);
       }
     }
+    packagevasdiv.appendChild(vasstatediv);
+    for(let i=0;i<3;i++){
+        vasstatediv.appendChild(vasstate[i]);
+      }
     if(vsl == "v"){
       vasstate[0].textContent = `:${(100*hungry/1440).toFixed(1)}%`;
       vasstate[1].textContent = `:${(100*thirsty/1440).toFixed(1)}%`;
@@ -484,7 +509,6 @@ document.addEventListener("pointerdown",(evt)=>{
             infcontent.textContent = thinglist[key].infcontent.c;
           }
         }
-        
       }
       if(use.textContent == ""){
         use.textContent = "脱下";
@@ -495,6 +519,17 @@ document.addEventListener("pointerdown",(evt)=>{
       del.textContent = "删除";
       vsl = "c";
       restate();
+    }
+    if(state == "chest"){
+      chesttitle.textContent = "箱子";
+      chestmovetitle.textContent = "移动物体的个数";
+      chestconfirm.textContent = "移动物体";
+      for(var key in thinglist){
+        if(chestinftitle.textContent == thinglist[key].inftitle.v){
+          chestinftitle.textContent = thinglist[key].inftitle.c;
+          chestinfcontent.textContent = thinglist[key].infcontent.c;
+        }
+      }
     }
     if(event != 0){
       eventtitle.textContent = eventlist[event].title.c;
@@ -531,6 +566,17 @@ document.addEventListener("pointerdown",(evt)=>{
       del.textContent = "kinlunua";
       vsl = "l";
       restate();
+    }
+    if(state == "chest"){
+      chesttitle.textContent = "tuavio";
+      chestmovetitle.textContent = "vys nu losvy";
+      chestconfirm.textContent = "losvy";
+      for(var key in thinglist){
+        if(chestinftitle.textContent == thinglist[key].inftitle.v){
+          chestinftitle.textContent = thinglist[key].inftitle.l;
+          chestinfcontent.textContent = thinglist[key].infcontent.l;
+        }
+      }
     }
     if(event != 0){
       eventtitle.textContent = eventlist[event].title.l;
@@ -570,6 +616,17 @@ document.addEventListener("pointerup",(evt)=>{
       del.textContent = "";
       vsl = "v";
       restate();
+    }
+    if(state == "chest"){
+      chesttitle.textContent = "";
+      chestmovetitle.textContent = "";
+      for(var key in thinglist){
+        if(chestinftitle.textContent == thinglist[key].inftitle.c ||chestinftitle.textContent == thinglist[key].inftitle.l){
+          chestinftitle.textContent = thinglist[key].inftitle.v;
+          chestinfcontent.textContent = thinglist[key].infcontent.v;
+        }
+      }
+      chestconfirm.textContent = "";
     }
     if(event != 0){
       eventtitle.textContent = eventlist[event].title.v;

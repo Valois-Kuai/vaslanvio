@@ -28,6 +28,14 @@ var roomeventlist = {
             2: {v:"", c:"不", l:"ne", code: ()=>{}}
         }
     },
+    4: {
+        title: {v:"",c:"箱子已满",l:"tuavio nin tynon"},
+        content: {v:"", c:"", l:""},
+        n: 1,
+        c: {
+            0: {v:"", c:"好的", l:"ki", code: ()=>{}}
+        }
+    },
 }
 
 Object.assign(eventlist, roomeventlist);
