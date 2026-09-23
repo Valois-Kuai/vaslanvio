@@ -9,7 +9,7 @@ html,body{
 
 #repage{
     background:#1E6FD9;
-    font-size:calc(0.8*var(--tenvys));
+    font-size:calc(0.6*var(--tenvys));
     border:2px solid #1E6FD9;
     box-shadow:inset 0 0 0 1px white;
     color:white;
@@ -52,7 +52,7 @@ html,body{
     font-size:calc(0.8*var(--tenvys));
     border:#0B1720 solid 2px;
     top:10%;
-    height:calc(1.2*var(--tenvys));
+    height:calc(1*var(--tenvys));
     width:80%;
     box-sizing:border-box;
 }
@@ -64,7 +64,7 @@ html,body{
     position:fixed;
     border:#14B8A6 solid 4px;
     font-size:calc(0.6*var(--tenvys));
-    height:calc(1.2*var(--tenvys));
+    height:calc(1*var(--tenvys));
     right:0%;
     background:white;
     width:20%;
@@ -92,9 +92,9 @@ button:active{
 
 #attention{
     position:fixed;
-    top:2%;
+    top:1%;
     right:5%;
-    font-size:calc(0.5*var(--tenvys));
+    font-size:calc(0.4*var(--tenvys));
 }
 
 .latindiv{
