@@ -54,3 +54,16 @@ KanKin3.onclick=()=>{
 }
 
 requestAnimationFrame(TuaVinKosTion);
+
+var wordonline = document.createElement("button");
+wordonline.id = "wordonline";
+document.body.appendChild(wordonline);
+wordonline.textContent = "在线词汇表";
+wordonline.onclick=()=>{
+    blackdiv.style.animation = "black 0.5s ease-out forwards";
+    setTimeout(()=>{window.location.href="./word.html";},500);
+}
+
+var blackdiv = document.createElement("div");
+blackdiv.id = "blackdiv";
+document.body.appendChild(blackdiv);
