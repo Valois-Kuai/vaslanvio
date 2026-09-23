@@ -1,25 +1,3 @@
-@font-face{
-    font-family:"vaslanvio";
-    src: url("../font/times.ttf") format("truetype");
-    font-weight:normal;
-    font-style:normal;
-    unicode-range: U+0000-007F;
-}
-@font-face{
-    font-family:"vaslanvio";
-    src:url(../font/fz.TTF) format("truetype");
-    font-weight:normal;
-    font-style:normal;
-    unicode-range: U+4E00-9FFF, U+3000-303F, U+FF00-FFEF;
-}
-@font-face{
-    font-family:"vaslanvio";
-    src: url("../font/vaslanvio.ttf") format("truetype");
-    font-weight:normal;
-    font-style:normal;
-    unicode-range: U+E000-F8FF;
-}
-
 body{
     margin:0;
     height:100vh;
