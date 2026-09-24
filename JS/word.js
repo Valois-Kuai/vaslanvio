@@ -68,7 +68,6 @@ function reword(){
         }
     } 
 }
-
 reword();
 
 search.onclick = ()=>{
