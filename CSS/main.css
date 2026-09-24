@@ -105,7 +105,7 @@ body{
     
     position:fixed;
     opacity:0;
-    z-index:1;
+    z-index:2;
     left:50%;
     transform:translateX(-50%);
     width:calc(5*var(--tenvys));
@@ -190,6 +190,7 @@ body{
     opacity:0;
     animation: kankinkosvion 1s ease-in-out forwards;
     animation-delay:1s;
+    z-index:1;
 }
 
 #blackdiv{
@@ -205,4 +206,22 @@ body{
 @keyframes black{
     0%{opacity:0;}
     100%{opacity:1;}
+}
+
+@keyframes babelin{
+    0%{opacity:0}
+    100%{opacity:0.25}
+}
+
+#babel{
+    position:fixed;
+    opacity:0;
+    height:100%;
+    max-height: calc(12*var(--tenvys));
+    animation: babelin 1s ease-in-out forwards;
+    animation-delay:1s;
+    z-index:0;
+    top:50%;
+    left:50%;
+    transform:translateY(-50%) translateX(-50%);
 }

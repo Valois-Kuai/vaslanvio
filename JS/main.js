@@ -67,3 +67,8 @@ wordonline.onclick=()=>{
 var blackdiv = document.createElement("div");
 blackdiv.id = "blackdiv";
 document.body.appendChild(blackdiv);
+
+var babel = document.createElement("img");
+babel.id = "babel";
+babel.src = "./picture/babel.png";
+document.body.appendChild(babel);
