@@ -70,5 +70,5 @@ document.body.appendChild(blackdiv);
 
 var babel = document.createElement("img");
 babel.id = "babel";
-babel.src = "./picture/babel.png";
+babel.src = "./picture/babel.webp";
 document.body.appendChild(babel);
