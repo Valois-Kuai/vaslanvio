@@ -29,7 +29,6 @@ function TuaVinKosTion(MuVin){
 //这个JS动画只是用来练手的，还是CSS动画好用啊
 
 function HuaTioMeVion1KosVion(){
-    HuaTioMeVion1.style.zIndex = 2;
     HuaTioMeVion1.style.animation = "huatiomevion1kosvion 0.5s ease-in forwards";
 }
 

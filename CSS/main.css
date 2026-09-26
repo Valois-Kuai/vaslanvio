@@ -91,14 +91,16 @@ body{
     position:fixed;
     inset:0;
     background:rgba(255,255,255,1);
-    z-index:2;
+    z-index:257;
+    pointer-events:none;
 }
 #huatiomevion1{
     position:fixed;
     opacity:0;
     inset:0;
     background:rgba(255,255,255,1);
-    z-index:0;
+    z-index:257;
+    pointer-events:none;
 }
 
 .kankin{
