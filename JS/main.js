@@ -63,6 +63,15 @@ wordonline.onclick=()=>{
     setTimeout(()=>{window.location.href="./word.html";},500);
 }
 
+var grammar = document.createElement("button");
+grammar.id = "grammar";
+document.body.appendChild(grammar);
+grammar.textContent = "人类语语法";
+grammar.onclick=()=>{
+    blackdiv.style.animation = "black 0.5s ease-out forwards";
+    setTimeout(()=>{window.location.href="./grammar.html";},500);
+}
+
 var blackdiv = document.createElement("div");
 blackdiv.id = "blackdiv";
 document.body.appendChild(blackdiv);

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--本来想link CSS和JS文件的，但想到这个页面比较简单，干脆直接写在html里好了-->
+        <title>人类语语法</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/CSS" href="./CSS/font.css">
+        <style>
+            html,body{
+                margin:0;
+                height:100%;
+                background-color:#FAF9F6;
+            }
+
+            body{
+                font-family:"vaslanvio",Arial,sans-serif;
+                letter-spacing:0.2px;
+                color:#2B2B2B;
+            }
+
+            :root{
+                --tenvys: clamp(24px,4vh,8vw);
+            }
+            #repage,#lastdiv,#nextdiv,#contentdiv{
+                background:#1E6FD9;
+                font-size:calc(0.8*var(--tenvys));
+                border:2px solid #1E6FD9;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+                position:fixed;
+                z-index:2;
+            }
+            #repage{
+                left:2%;
+                top:2%;
+            }
+            #lastdiv{
+                bottom:1%;
+                left:50%;
+                transform:translateX(-170%);
+            }
+            #nextdiv{
+                bottom:1%;
+                left:50%;
+                transform:translateX(-50%);
+            }
+            #contentdiv{
+                bottom:1%;
+                left:50%;
+                transform:translateX(100%);
+            }
+            
+            #blackdiv{
+                position:fixed;
+                pointer-events:none;
+                height:100%;
+                width:100%;
+                z-index:256;
+                opacity:0;
+                background:black;
+            }
+            #whitediv{
+                position:fixed;
+                pointer-events:none;
+                height:100%;
+                width:100%;
+                z-index:256;
+                opacity:0;
+                background:white;
+            }
+            
+            @keyframes white{
+                0%{opacity:0;}
+                100%{opacity:1;}
+            }
+            
+            @keyframes blackin{
+                0%{opacity:1;}
+                100%{opacity:0;}
+            }
+            div{
+                position:absolute;
+            }
+            #textdiv{
+                width:94%;
+                overflow-y:auto;
+                position:fixed;
+                z-index:1;
+                left:3%;
+                top:3%;
+                font-size:calc(0.6*var(--tenvys));
+                height:92%;
+            }
+            h1{
+                text-align:center;
+            }
+            table{
+                border: black solid 2px;
+                border-collapse: collapse;
+            }
+            img{
+                width:80%;
+                position:relative;
+                left:10%;
+            }
+            a{
+                display:block;
+                margin:10px;
+            }
+            button:active{
+                opacity:0.5;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="textdiv">
+            <h1 id="title">人类语语法</h1>
+            <div id="content">
+            <h2>【目录】</h2>
+            <a href="#" onclick="nowdiv='grammarbase';rediv();">人类语语法基础</a>
+            <a href="#" onclick="nowdiv='phonology';rediv();"><b>音系</b></a>
+            <a href="#" onclick="nowdiv='character';rediv();">人类语文字</a>
+            <a href="#" onclick="nowdiv='word';rediv();"><b>词汇</b></a>
+            <a href="#" onclick="nowdiv='pronoun';rediv();">代词与限定代词</a>
+            <a href="#" onclick="nowdiv='copula';rediv();">系词与存现</a>
+            <a href="#" onclick="nowdiv='logic';rediv();">逻辑词与虚词</a>
+            <a href="#" onclick="nowdiv='num';rediv();">数词与量</a>
+            <a href="#" onclick="nowdiv='sentence';rediv();"><b>句子组成与语序</b></a>
+            <a href="#" onclick="nowdiv='clause';rediv();">从句</a>
+            <a href="#" onclick="nowdiv='question';rediv();">疑问句</a>
+            <a href="#" onclick="nowdiv='tense';rediv();">时间的表达</a>
+            <a href="#" onclick="nowdiv='cond';rediv();">假设，条件与让步</a>
+            <a href="#" onclick="nowdiv='discourse';rediv();">篇章连接与焦点</a>
+            </div>
+
+            <div id="grammarbase">
+            <h2>【人类语语法基础】</h2>
+            <p>1. 人类语语序为<strong>主语-谓语-宾语（SVO）</strong>，在任何情况下（包括特殊疑问句）都不改变语序。</p>
+            <p>2. 形容词在修饰词的前方，从句在修饰词的后方。</p>
+            <p>3. 副词在修饰词的后方，或句首和句末</p>
+            <p>4. 人类语是<strong>分析语</strong>，不存在词的形态变化。</p>
+            <p>5. 时态在句首或句末加时态助词（过去），（未来），（现在）表示。</p>
+            <p>6. 人类语没有性数格的区分，名词的数量可用（一个），（一些），（多个），（全部）等等来表示。</p>
+            <p>7. 人类语区分了两个系词：后接名词，后接形容词，这能显著减少歧义。</p>
+            <p>8. 语法是为了消除歧义而非强制模板，如果不会产生歧义，语法可以宽松一点。</p>
+            </div>
+
+            <div id="phonology">
+            <h2>【音系】</h2>
+            <h3>辅音</h3>
+            <table border="1">
+            <tr><th>字母</th><th>音值</th><th>说明</th></tr>
+            <tr><td>m</td><td>/m/</td><td>双唇鼻音</td></tr>
+            <tr><td>n</td><td>/n/</td><td>齿龈鼻音；作韵尾时使前面元音鼻化</td></tr>
+            <tr><td>p</td><td>/pʰ, p, b/</td><td>自由变体（送气／不送气／浊）</td></tr>
+            <tr><td>t</td><td>/tʰ, t, d/</td><td>自由变体</td></tr>
+            <tr><td>k</td><td>/kʰ, k, g/</td><td>自由变体</td></tr>
+            <tr><td>v</td><td>/f ~ v/</td><td>唇齿擦音，清浊自由</td></tr>
+            <tr><td>s</td><td>/s ~ z/</td><td>齿龈擦音，清浊自由</td></tr>
+            <tr><td>h</td><td>/h, x, ʁ/</td><td>三种均允许</td></tr>
+            <tr><td>l</td><td>/l, ɾ/</td><td>边音或闪音</td></tr>
+            <tr><td>j</td><td>/j/</td><td>硬腭近音</td></tr>
+            </table>
+            <p>人类语<b>没有复辅音</b>，也<b>没有 /ʃ/ 与 /tʃ/</b>和各种腭化产生的辅音。这是为了降低听力负担而作的设计取舍，代价是 ki，si 的发音略显生硬。</p>
+            
+            <h3>元音</h3>
+            <table border="1">
+            <tr><th>字母</th><th>音值</th><th>说明</th></tr>
+            <tr><td>a</td><td>/a/</td><td>开前不圆唇</td></tr>
+            <tr><td>i</td><td>/i/</td><td>闭前不圆唇</td></tr>
+            <tr><td>u</td><td>/u, ɯ/</td><td>闭后圆唇</td></tr>
+            <tr><td>e</td><td>/e/</td><td>半闭前不圆唇，类似汉语拼音ei</td></tr>
+            <tr><td>o</td><td>/o ~ ɔ/</td><td>半闭后圆唇</td></tr>
+            <tr><td>y</td><td>/y, ju, jɯ/</td><td>闭前圆唇，类似汉语拼音ü。若无法发出，可用 /ju/ 代替</td></tr>
+            </table>
+            
+            <h3>韵母组合</h3>
+            <table border="1">
+            <tr><th>组合</th><th>音值</th><th>说明</th></tr>
+            <tr><td>an</td><td>/ɑ̃, ɑŋ/</td><td>a 的鼻音化，接近汉语拼音 ang</td></tr>
+            <tr><td>in</td><td>/ĩ, in, iŋ/</td><td></td></tr>
+            <tr><td>en</td><td>/en, ən/</td><td></td></tr>
+            <tr><td>on</td><td>/ɔ̃, on ~ ɔn/</td><td></td></tr>
+            <tr><td>ua</td><td>/wa/</td><td></td></tr>
+            <tr><td>io</td><td>/jo ~ jɔ/</td><td></td></tr>
+            <tr><td>ion</td><td>/jon ~ jɔn/</td><td></td></tr>
+            <tr><td>ys</td><td>/ys ~ yz, jus ~ juz/</td><td></td></tr>
+            <tr><td>as / is / us / os</td><td>/as~az/ 等</td><td></td></tr>
+            </table>
+            <p>特殊读音：ju = /y, ju, jɯ/；jus = /ys, jus, jɯs/；jen = /jɛn, jen, jən/。</p>
+            
+            <h3>音节结构</h3>
+            <p>音节结构为 <b>辅音+元音+(韵尾)</b>，其中韵尾只有n与s两个。</p>
+            <p>s在s与j前要延长读音（历史上曾改变s的发音，后来改为延长读音），用以辨别如tasju与tasy这样相近的组合。</p>
+            </div>
+
+            <div id="character">
+            <h2>【人类语文字】</h2>
+            <h3>人类语字表</h3>
+            <img alt="无法加载图片" src="./picture/人类语字表.webp"/>
+            <p>人类语共有145个表意文字与对应的音节。为了降低记忆难度，提高美观性和简易程度，一些字较为抽象，可能减少了表意性。</p>
+            <p>如果不会使用表意文字，那么使用拉丁化的人类语也是可行的。</p>
+            <h3>字形的理据</h3>
+            <p>字形的构造有明确的象形或借用理据，详见《人类语造字法》。举例：</p>
+            <ul>
+            <li>t行的共同特征是"在象形文字右侧有一个开口向右的曲线"。</li>
+            <li>v行，h行多为象形文字（ha火，hi水，hen山）。</li>
+            <li>l行"总体是一个开口向下的大曲线"，代表一个个体，配以不同部件构成不同动作。</li>
+            <li>m行"由'我'与坐标轴的相对位置定义"：ma是"我"在 y 轴左边，mi右，me上，mo下。</li>
+            <li>n行使用标准逻辑门图形：na是与门，ni是或门，ne是非门。</li>
+            <li>s行使用简单几何图形：sa三角形，si正方形，se圆形。</li>
+            <li>k行"借用外来字母"：ka取自 f，ki取自 ε，ku取自D，ko取自日语さ。</li>
+            </ul>
+            </div>
+
+            <div id="word">
+            <h2>【词汇】</h2>
+            <h3>名词</h3>
+            <p>名词多为"形容 + 中心"结构。tokeva（土豆）= to（圆）+ ke（好吃）+ va（植物）＝圆圆的，好吃的植物。</p>
+            <p>若形容部分辨识度足够高，可以<b>省略中心词</b>。tislive（大象）字面是"长鼻"，其完整形式tislivevi也成立。词表中用括号表示可省略成分：tislive(vi) 表示 tislive与tislivevi同义。</p>
+            <p>常用词在创造时尽量限制在<b>三个音节之内</b>，以保证句子中的辨识度。</p>
+            
+            <h3>形容词</h3>
+            <p>大部分形容词由名词或字加后缀non构成，non类似汉语形容词末尾的"的"。honon（同样的）= ho（自然）+non。</p>
+            <p><b>注意</b>：honon用的是ho的引申义"同样"，这类引申义会增加记忆难度，因此造词时<b>非必要不增加引申义</b>。</p>
+            <h3>动词</h3>
+            <p>大多数动词也是偏正结构。halos（颤抖）＝ ha（火）+ los（移动）；更严谨的说法是 haniolos，即"像火一样动"。</p>
+            <p>很大一部分动词由形容词，名词或字加 nua（变化）构成：tanua（增大）＝ ta（大）+ nua，字面"大化"。</p>
+            <p>小部分动词是动宾结构：vome（喜悦）＝ vo（情感）+ me（上），字面"情感上去"。</p>
+            
+            <h3>副词</h3>
+            <p>副词构词较自由，但也更容易产生歧义，造词时应多考虑是否会引起歧义。较安全的一类是以 nio（像）结尾的副词，表示"像……一样地"：tishionnio（如闪电般）＝ tis（长）+ hion（光）+ nio。</p>
+            <h3>表音词</h3>
+            <p>用方括号或单引号括起来的字词只表音，不表意。用于外来词，人名，地名，拟声词，叹词。</p>
+            <p>[kohi]咖啡，[pekin]北京，[nihon]日本，[mama]妈妈，[ha]啊/哈？</p>
+            <p>[valua]tion瓦卢瓦先生/小姐（tion是敬称，用于人名后，地名用tion/sion/不加）</p>
+            <h3>常见派生后缀</h3>
+            <table border="1">
+            <tr><th>后缀</th><th>含义</th><th>例</th></tr>
+            <tr><td>-non</td><td>形容词化（的）</td><td>kistanon 重要的</td></tr>
+            <tr><td>-nua</td><td>动词化（化）</td><td>tanua 增大</td></tr>
+            <tr><td>-nio</td><td>副词化（像……一样地）</td><td>tishionnio 如闪电般</td></tr>
+            <tr><td>-vio</td><td>工具，器械</td><td>hivio 洗衣机</td></tr>
+            <tr><td>-vos</td><td>场所，地区</td><td>jusvos 学校</td></tr>
+            <tr><td>-vas</td><td>人，施事者</td><td>kinuavas 医生</td></tr>
+            <tr><td>-ve</td><td>器官，内部工具</td><td>luve 眼睛</td></tr>
+            <tr><td>-vi</td><td>动物（类别）</td><td>kavi 狗／狼/犬科</td></tr>
+            <tr><td>-va</td><td>植物（类别）</td><td>tava 乔木</td></tr>
+            <tr><td>-vy</td><td>物质，抽象名词</td><td>jusjonvy 知识</td></tr>
+            <tr><td>-tua</td><td>容器</td><td>hikutua 水壶</td></tr>
+            <tr><td>-su</td><td>本身，自己</td><td>sesu 我自己</td></tr>
+            <tr><td>-kua</td><td>大概……罢</td><td></td></tr>
+            <tr><td>-sen</td><td>疑问</td><td></td></tr>
+            <tr><td>-ja-</td><td>……分之……</td><td>pajape 二分之一</td></tr>
+            <tr><td>-jus</td><td>学科</td><td>hasjus 神学</td></tr>
+            <tr><td>konkua...non</td><td>可...的</td><td>konkua hanua non 可燃的</td></tr>
+            <tr><td>maslis...non</td><td>易...的</td><td>maslis hanua non 易燃的</td></tr>
+            <tr><td>ne...non</td><td>不可...的</td><td>ne hanua non 不可燃的</td></tr>
+            <tr><td>-no</td><td>属于...的</td><td>sano 你的</td></tr>
+            </table>
+            
+            <h3>数词构词</h3>
+            <p>序数用前缀 vys-：vyspa 第一，vyspape 第十二。</p>
+            <p>比较级用前缀 jin-，最高级用前缀 jua-，加在形容词前：jintanon 更大的，juatanon 最大的。</p>
+            <p>分数用 -ja- 中缀：pajape 二分之一，pejapin 五分之二。</p>
+            
+            <h3>化学元素</h3>
+            <p>化学元素用"性质/希腊词源 + vy"构词。若性质不常见，词源是人名或神名，或超过四个音节，则改用该元素的原子序号构词。</p>
+
+            
+            </div>
+            <div id="pronoun">
+            <h2>【代词与限定代词】</h2>
+            <h3>人称代词</h3>
+            <table border="1">
+            <tr><th>单数</th><th>复数</th></tr>
+            <tr><td>se 我</td><td>san 我们</td></tr>
+            <tr><td>sa 你</td><td>sas 你们</td></tr>
+            <tr><td>si 他／她／它</td><td>sis 他们／她们／它们</td></tr>
+            </table>
+            <p>第三人称不分性别。</p>
+
+            <h3>指示代词</h3>
+            <table border="1">
+            <tr><th></th><th>这</th><th>那</th><th>这里</th><th>那里</th></tr>
+            <tr><td>单数</td><td>so</td><td>sos</td><td>su</td><td>sion</td></tr>
+            <tr><td>复数</td><td>sin</td><td>son</td><td>—</td><td>—</td></tr>
+            </table>
+
+            <h3>疑问词</h3>
+            <p>特殊疑问词包括：sus什么，sy谁，sua哪里，sys何时，sio怎么/如何，jansus为什么，suspa哪个。</p>
+            <p>特殊疑问句的语序与陈述句相同（SVO 不变），且最好不要在句末再加 -sen，特殊疑问句句末加sen表示强烈的疑问语气。人类语没有问号，疑问由字 sen 承担。</p>
+
+            <h3>不定代词</h3>
+            <table border="1">
+            <tr><td>lynon全部</td><td>luanon一些</td><td>lysnon其他</td></tr>
+            </table>
+            <h3>数字代词</h3>
+            <p>具体数字代词由具体数字担当，例如pa一个，pe两个，pas三个，pape十二个（注意两个相邻数字间加单引号'）</p>
+            <p>抽象数字代词由形容词担当，例如tusnon多个，luanon一些，lynon全部，lysnon其他，lys(pa)non另一个，muluanon足够的</p>
+            </div>
+
+            <div id="copula">
+            <h2>【系词与存现】</h2>
+            <h3>两个系词</h3>
+            <table border="1">
+            <tr><th>系词</th><th>后接</th><th>例</th></tr>
+            <tr><td>nan</td><td>名词</td><td>so nan pa luave..这是一个部门。</td></tr>
+            <tr><td>nin</td><td>形容词</td><td>hon nin kunon..石头是坚硬的。</td></tr>
+            </table>
+            <p>两个系词的作用是帮助区分词性，类似西班牙语的ser/estar，但在人类语中它们不承担时体功能。</p>
+
+            <h3>区分领有，存在，处所，判断</h3>
+            <table border="1">
+            <tr><th>类型</th><th>构造</th><th>例</th></tr>
+            <tr><td>领有</td><td>lo（有）</td><td>se lo pa hi..我有一杯水。</td></tr>
+            <tr><td>存在</td><td>lio（存在）</td><td>jame vyvio lio pa tokeva..桌子上有一个土豆。</td></tr>
+            <tr><td>处所</td><td>ja（在）</td><td>san ja [tokio].[].我们在东京。</td></tr>
+            <tr><td>判断</td><td>nan/nin</td><td>so nan pa kyvi..这是一只老鼠。</td></tr>
+            </table>
+
+            </div>
+
+            <div id="logic">
+            <h2>【逻辑词与虚词】</h2>
+            <h3>n 行的逻辑词</h3>
+            <table border="1">
+            <tr><th>字</th><th>含义</th><th>说明</th></tr>
+            <tr><td>na</td><td>与</td><td>标准的与门</td></tr>
+            <tr><td>ni</td><td>或</td><td>或门。注意是一般口语的"或"（异或）：若 A，B 同时为真，直接用 na 而非 ni</td></tr>
+            <tr><td>nu</td><td>从句指示词</td><td>引导后置从句</td></tr>
+            <tr><td>ne</td><td>非/不</td><td>否定，置于被否定成分之前</td></tr>
+            <tr><td>no</td><td>的（从属）</td><td>表示后面的属于前面的</td></tr>
+            <tr><td>non</td><td>形容（的）</td><td>把字词转为形容词</td></tr>
+            <tr><td>nas</td><td>所以</td><td></td></tr>
+            <tr><td>nis</td><td>虽然</td><td></td></tr>
+            <tr><td>nus</td><td>承接</td><td>连接两个短句；相当于英语 and，法语 et，日语 て</td></tr>
+            <tr><td>nos</td><td>因为</td><td></td></tr>
+            <tr><td>nen</td><td>但是</td><td></td></tr>
+            <tr><td>nua</td><td>化/变化</td><td></td></tr>
+            <tr><td>nio</td><td>像</td><td>构成类比副词</td></tr>
+            </table>
+
+            <h3>nus 的用法</h3>
+            <p>nus 用来连接两个短句：如果两个句子的主语相同，同时又可能有点递进关系，就用这个词。</p>
+            <p>hastion kio vasly no kunua, nus jo vasly lojon maspanon lanvio.<br/>,.<br/>神畏惧人类的团结，于是让人类有了不同的语言。</p>
+
+            <h3>被动与话题</h3>
+            <p>jas 是被动指示词，也可用作话题指示词（类似日语的 は）。</p>
+            <p>se jas kionua..我受到惊吓。</p>
+            <p>losnuavyvas jas kovas kasnua..外交官被士兵伤害。</p>
+
+            <h3>使役</h3>
+            <p>jo（让）表示使役：jo lostua los  驾驶汽车（让车移动）。</p>
+            </div>
+
+            
+            <div id="num">
+            <h2>【数词与量】</h2>
+            <h3>基数</h3>
+            <p>pa一，pe二，pas三，pan四，pin五，pen六，pon七，py八，pio九，pua零</p>
+            <p>两个数字之间用小分隔符隔开（'）如'67。</p>
+
+            <h3>大数（科学计数法）</h3>
+            <p>直接用 papuapua 表示一百有些累赘，因此新增了类科学计数法的说法：</p>
+            <p>panape(pua) ＝ 一 + 两个零 ＝ 一百pataspin na pas(pua) ＝ 1.5 × 10³</p>
+
+            <h3>序数</h3>
+            <p>前缀 vys-：vyspa 第一，vyspape 第十二。</p>
+
+            <h3>分数</h3>
+            <p>中缀 -ja-：pajape 二分之一，pejapin 五分之二。-japanape表示"百分之"。</p>
+
+            <h3>量词制度</h3>
+            <p>单位用"kon+属性+vys"构词：kontis(vys) 米，kontaten(vys) 千克，panamaspaskontatenvy 克（千分之一千克）。</p>
+            <p>有关时间的常用单位使用“ty”（取“沙漏满了”之意）ty 秒，taty 分，hyty 年，vaty 十年，vasty 百年，huaty 月，hoty 天。</p>
+            </div>
+
+            <div id="sentence">
+            <h2>【句子组成与语序】</h2>
+            <h3>基本语序</h3>
+            <p>主语 → 谓语 → 宾语（SVO）。人类语是分析语，保持 SVO 语序很重要。</p>
+            <p>kionvi lujon pa kyvi..猫看见了一只老鼠。</p>
+            <p>se je so hashe na lyvy ja si..我爱这世界与其中的一切。</p>
+
+            <h3>修饰成分的位置</h3>
+
+            <li>形容词 → 在被修饰词前</li>
+            <li>副词 → 可在句首或动词后</li>
+            <li>从句 → 在所修饰词后（用 nu 引导）</li>
+
+            <p>这一安排不严格要求。</p>
+
+            <h3>从句的两种形式</h3>
+            <p>在不严谨的情况下，可以像汉语一样把从句封装成形容词（关系化）。由于人类语形容词在名词前，因此这种方法可以把从句前置：</p>
+            <p>su lio pe hihe nu ne lio vas..<br/>su lio pe ne lio vas non hihe..<br/>这里有两个没有人的岛屿。</p>
+
+            <h3>间接宾语</h3>
+            <p>"把 X 给 Y"用 lon（给）：tasvas lon [mama] pa teva.[].孩子给了妈妈一朵花。</p>
+        
+
+            </div>
+
+            <div id="clause">
+            <h2>【从句】</h2>
+            <h3>从句后置</h3>
+            <p>用从句指示词 nu，从句放在所修饰的词之后：</p>
+            <p>su lio pe hihe nu ne lio vas..这里有两个没有人的岛屿。</p>
+            <p>nus ton len pa tistua nu kua losjon has..试图建造一座通往天际的高塔。</p>
+
+            <h3>名词性从句</h3>
+            <p>nu 引导的从句可直接作主语或宾语:<br/>kasvas tyjon jen lio pa menvio, nus nan kivas ne len lyvy.<br/>,.<br/>恶人获胜的唯一条件就是好人袖手旁观。</p>
+            <h3>从句的两种形式</h3>
+            <p>在不严谨的情况下，可以像汉语一样把从句封装成形容词（关系化）。由于人类语形容词在名词前，因此这种方法可以把从句前置：</p>
+            <p>su lio pe hihe nu ne lio vas..<br/>su lio pe ne lio vas non hihe..<br/>这里有两个没有人的岛屿。</p>
+            </div>
+
+            <div id="question">
+            <h2>【疑问句】</h2>
+            <h3>一般疑问句</h3>
+            <p>在陈述句结尾加表疑问的助词 sen。<br/>sa losjon [tupelin] sen.[].你到都柏林了吗？</p>
+            <p>阅读时句末语调上扬。</p>
+
+            <h3>特殊疑问句</h3>
+            <p>语序不变，只把疑问词替换到相应位置，且句末一般不加 sen。</p>
+            <table border="1">
+            <tr><th>疑问词</th><th>含义</th><th>例</th></tr>
+            <tr><td>sus</td><td>什么</td><td>so nan sus?.这是什么？</td></tr>
+            <tr><td>sy</td><td>谁</td><td>sy nan pa kiskannon tasvas?.谁是一个香香软软的小蛋糕？</td></tr>
+            <tr><td>sua</td><td>哪里</td><td>sa losjon sua?你去了哪里？</td></tr>
+            <tr><td>sys</td><td>何时</td><td></td></tr>
+            <tr><td>sio</td><td>怎么/如何</td><td></td></tr>
+            <tr><td>jansus</td><td>为什么</td><td></td></tr>
+            <tr><td>suspa</td><td>哪个</td><td></td></tr>
+            </table>
+
+            <h3>疑问强化</h3>
+            <p>疑问词与 sen 连用可表示"究竟/到底"：sa losjon sua sen..你到底去了哪里？</p>
+            </div>
+
+            <div id="tense">
+            <h2>【时间的表达】</h2>
+            <h3>时态助词</h3>
+            <p>mavin 过去，muvin 现在，mivin 未来。放在句首或句末，不改变动词。</p>
+            <p>人类语没有严格的完成时，若一定要表达完成时，可在句末加tyvin 结束。</p>
+
+            <h3>时间副词</h3>
+            <table border="1">
+            <tr><th>词</th><th>含义</th></tr>
+            <tr><td>tusvin(nio)</td><td>总是</td></tr>
+            <tr><td>tisvin(nio)</td><td>经常</td></tr>
+            <tr><td>tosvin(nio)</td><td>有时/偶尔</td></tr>
+            <tr><td>neliovin(nio)</td><td>从不</td></tr>
+            <tr><td>masvin(nio)</td><td>绝对从不</td></tr>
+            <tr><td>vinly</td><td>每次</td></tr>
+            <tr><td>penio</td><td>再次/重新</td></tr>
+            <tr><td>manio</td><td>仍然</td></tr>
+            <tr><td>vinjon</td><td>直到（时间）</td></tr>
+            <tr><td>vinkus</td><td>自从（时间）</td></tr>
+            <tr><td>jamiso</td><td>从此</td></tr>
+            </table>
+
+            <h3>时段的表达</h3>
+            <p>vin（时间）在复合词中承担"次，回"的量词功能：pa vin 一次，pe vin 两次，vyspa vin 第一次。</p>
+            <p>ma- 前缀表示早期/幼年：mavas 婴儿，mavatio 蝌蚪。</p>
+            <p>时段名词：tastavin 青少年时期，tavin 成人时期，tustavin 老年时期。</p>
+            <p>四季：vavin 春天，kavin 夏天，kinvin 秋天，kovin 冬天。</p>
+            <p>昼夜：hyvin 白天，huavin 晚上/夜间，hymovin 清晨/上午，hymevin 中午/下午。</p>
+
+            <h3>方位与时间共用一套语素</h3>
+            <p>人类语中时间被看作一个箭头向右的数轴，用"左右"代替"前后"：ma（左）→ 过去，mu（中）→ 现在，mi（右）→ 未来。因此 mavin/muvin/mivin 与 milos（向右走）同构。</p>
+            </div>
+
+            <div id="cond">
+            <h2>【假设，条件与让步】</h2>
+            <table border="1">
+            <tr><th>词</th><th>含义</th><th>例</th></tr>
+            <tr><td>jos</td><td>如果</td><td>jos san le kankin..如果我们按下按钮</td></tr>
+            <tr><td>jos ... nus ...</td><td>如果……那么……</td><td></td></tr>
+            <tr><td>jen ... nus ...</td><td>只有……才……</td><td></td></tr>
+            <tr><td>jajen</td><td>只要</td><td></td></tr>
+            <tr><td>jakua</td><td>尽管/即使</td><td>san losju kivos jakua, san ne masliojon.,.即使我们去了水草丰美之地，我们也不会消失。</td></tr>
+            <tr><td>jamua</td><td>除了/除非</td><td>ho nin tenon, vavos jamua.,.大自然很美丽，除了森林。</td></tr>
+            <tr><td>maskon(nio)</td><td>无论</td><td>maskon se losjon sua..无论我去哪里。</td></tr>
+            <tr><td>vyjon (so)</td><td>既然（如此）</td><td>vyjon so, se losjon [kelakevo](sion).,[].既然如此，我就去了克拉科夫。</td></tr>
+            <tr><td>nis ... nen ...</td><td>虽然……但是……</td><td></td></tr>
+            <tr><td>nos ... nas ...</td><td>因为……所以……</td><td></td></tr>
+            </table>
+            </div>
+
+            <div id="discourse">
+            <h2>【篇章连接与焦点】</h2>
+            <h3>连接词</h3>
+            <table border="1">
+            <tr><th>词</th><th>含义</th></tr>
+            <tr><td>nus</td><td>承接（于是，那么）</td></tr>
+            <tr><td>nas</td><td>所以</td></tr>
+            <tr><td>nos</td><td>因为</td></tr>
+            <tr><td>nis</td><td>虽然</td></tr>
+            <tr><td>nen</td><td>但是</td></tr>
+            <tr><td>nusly</td><td>总之/无论如何</td></tr>
+            <tr><td>jamiso</td><td>从此</td></tr>
+            </table>
+
+            <h3>焦点与标量算子</h3>
+            <table border="1">
+            <tr><th>词</th><th>含义</th><th>例</th></tr>
+            <tr><td>jen</td><td>只</td><td>jen lio pa menvio  只有一个条件/前提</td></tr>
+            <tr><td>ly</td><td>都/全部</td><td>san ly la pa hi. . 我们都喝水。</td></tr>
+            <tr><td>tusjen</td><td>甚至/连……都</td><td>tusjen si jusjon sa no lenvy. . 连他都知道你的工作。</td></tr>
+            <tr><td>masnus</td><td>反而/却</td><td>masnus si lonlion se. . 反而他帮助了我。</td></tr>
+            <tr><td>honon(nio)</td><td>同样的/也</td><td></td></tr>
+            </table>
+            <p>如果可能存在歧义，焦点算子应紧贴被强调的成分并置于其前：se hononnio la pa hi （我也喝水，焦点在"我"）。</p>
+            <h3>语气</h3>
+            <p>-kua 大概……罢　　-sen 吗/呢　　kennio 一定/必须/显然　　konkuanio 可能/大概　　konkuation 请/劳驾</p>
+            <h3>kisa lu lanvio no mekonvy nu vaslanvio.<br/>.<br/>感谢观看人类语语法。</h3>
+            </div>
+        </div>
+    </body>
+    <script>
+        var repage = document.createElement("button");
+        repage.id = "repage";
+        document.body.appendChild(repage);
+        repage.textContent = "回到主页";
+        
+        var blackdiv = document.createElement("div");
+        blackdiv.id = "blackdiv";
+        document.body.appendChild(blackdiv);
+        
+        var whitediv = document.createElement("div");
+        whitediv.id = "whitediv";
+        document.body.appendChild(whitediv);
+        
+        repage.onclick=()=>{
+            whitediv.style.animation = "white 0.5s ease-out forwards";
+            setTimeout(()=>{window.location.href="./main.html"},500);
+        }
+        
+        blackdiv.style.animation = "blackin 0.5s ease-in forwards";
+
+        //我开始后悔了，应该用把html,js,css分开的
+        var nowdiv = "content";
+        var textdiv = document.getElementById("textdiv");
+        function rediv(){
+            textdiv.querySelectorAll("*").forEach((div) => {
+                div.style.display = "none";
+            })
+            var h1 = document.getElementById("title");
+            h1.style.display = "";
+            var showdiv = document.getElementById(nowdiv);
+            showdiv.style.display = "";
+            showdiv.querySelectorAll("*").forEach((div) => {
+                div.style.display = "";
+            })
+        }
+        var structure = ["content","grammarbase","phonology","character","word","pronoun","copula","logic","num","sentence","clause","question","tense","cond","discourse"];
+
+        var lastdiv = document.createElement("button");
+        lastdiv.id = "lastdiv";
+        lastdiv.textContent = "上一页";
+        document.body.appendChild(lastdiv);
+        var nextdiv = document.createElement("button");
+        nextdiv.id = "nextdiv";
+        nextdiv.textContent = "下一页";
+        document.body.appendChild(nextdiv);
+        var contentdiv = document.createElement("button");
+        contentdiv.id = "contentdiv";
+        contentdiv.textContent = "目录";
+        document.body.appendChild(contentdiv);
+
+        lastdiv.onclick=()=>{
+            if(structure[(structure.indexOf(nowdiv)-1)]){
+                nowdiv = structure[(structure.indexOf(nowdiv)-1)];  
+                rediv();
+            }
+            
+        }
+        nextdiv.onclick=()=>{
+            if(structure[(structure.indexOf(nowdiv)+1)]){
+                nowdiv = structure[(structure.indexOf(nowdiv)+1)];
+                rediv();
+            }
+            
+        }
+        contentdiv.onclick=()=>{
+            nowdiv = "content";
+            rediv();
+        }
+
+        rediv();
+    </script>
+</html>

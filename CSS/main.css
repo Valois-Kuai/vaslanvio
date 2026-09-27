@@ -194,6 +194,27 @@ body{
     animation-delay:1s;
     z-index:1;
 }
+#grammar{
+    position:fixed;
+    border-width:4px;
+    right:0%;
+    bottom:5%;
+    height:calc(2*var(--tenvys));
+    width:calc(4.5*var(--tenvys));
+    border-color:#a7d7f3;
+    white-space:normal;
+    padding:2px;
+    font-size:calc(0.3*var(--tenvys));
+    background:black;
+    border-style:solid;
+    color:white;
+    font-family:"vaslanvio";
+    font-size:calc(0.6*var(--tenvys));
+    opacity:0;
+    animation: kankinkosvion 1s ease-in-out forwards;
+    animation-delay:1s;
+    z-index:1;
+}
 
 #blackdiv{
     position:fixed;
