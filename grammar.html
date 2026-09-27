@@ -543,6 +543,7 @@
         var nowdiv = "content";
         var textdiv = document.getElementById("textdiv");
         function rediv(){
+            textdiv.scrollTop = 0;
             textdiv.querySelectorAll("*").forEach((div) => {
                 div.style.display = "none";
             })
