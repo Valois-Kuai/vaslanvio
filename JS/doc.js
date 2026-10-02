@@ -37,7 +37,6 @@ function DownLoad(sus){
 KanKin0.onclick = () => DownLoad(0); //这个所谓叫闭包的写法真的看不懂
 KanKin1.onclick = () => DownLoad(1);
 KanKin2.onclick = () => DownLoad(2);
-KanKin3.onclick = () => DownLoad(3);
 KanKin4.onclick = () => DownLoad(4);
 
 setTimeout(()=>{
