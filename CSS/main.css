@@ -248,3 +248,8 @@ body{
     left:50%;
     transform:translateY(-50%) translateX(-50%);
 }
+
+nav{
+    position:fixed;
+    opacity:0;
+}
