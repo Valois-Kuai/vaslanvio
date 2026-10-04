@@ -83,7 +83,7 @@ document.body.appendChild(babel);
 
 window.addEventListener("pageshow",(evt)=>{
     if(evt.persisted){
-        blackdiv.style.opacity=0;
-        HuaTioMeVion1.style.opacity=0;
+        blackdiv.style.display="none";
+        HuaTioMeVion1.style.display="none";
     }
 });

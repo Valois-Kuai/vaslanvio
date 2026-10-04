@@ -82,6 +82,6 @@ input.addEventListener("keydown",(evt)=>{
 
 window.addEventListener("pageshow",(evt)=>{
     if(evt.persisted){
-        whitediv.style.opacity=0;
+        whitediv.style.display="none";
     }
 });
