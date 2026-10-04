@@ -165,7 +165,8 @@ checkcourseprogress();
 
 window.addEventListener("pageshow",(evt)=>{
     if(evt.persisted){
-        e.whitemask1.style.display="none";
+        e.whitemask1.style.animation="none";
+        e.whitemask1.style.opacity=0;
     }
 });
 
