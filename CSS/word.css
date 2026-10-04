@@ -101,16 +101,19 @@ button:active{
     height:auto;
     width:40%;
     border:black 1px solid;
+    overflow-wrap:anywhere;
 }
 
 .vaslanviodiv{
     height:auto;
     width:20%;
     border:black 1px solid;
+    overflow-wrap:anywhere;
 }
 
 .meandiv{
     height:auto;
     width:40%;
     border:black 1px solid;
+    overflow-wrap:anywhere;
 }

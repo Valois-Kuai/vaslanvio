@@ -79,3 +79,9 @@ input.addEventListener("keydown",(evt)=>{
         reword();
     }
 })
+
+window.addEventListener("pageshow",(evt)=>{
+    if(evt.persisted){
+        whitediv.style.opacity=0;
+    }
+});

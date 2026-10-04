@@ -80,3 +80,10 @@ var babel = document.createElement("img");
 babel.id = "babel";
 babel.src = "./picture/babel.webp";
 document.body.appendChild(babel);
+
+window.addEventListener("pageshow",(evt)=>{
+    if(evt.persisted){
+        blackdiv.style.opacity=0;
+        HuaTioMeVion1.style.opacity=0;
+    }
+});

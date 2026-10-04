@@ -163,5 +163,10 @@ window.addEventListener('load', drawline);
 window.addEventListener('resize', drawline);
 checkcourseprogress();
 
+window.addEventListener("pageshow",(evt)=>{
+    if(evt.persisted){
+        e.whitemask1.style.opacity=0;
+    }
+});
 
 //我觉得纯AI代码不超过5%罢，完全胜利ですわ
