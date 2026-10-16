@@ -30,8 +30,12 @@ body{
 }
 
 #output{
-    font-size:calc(3*var(--tenvys));
-    margin:0;
+    font-size:calc(1*var(--tenvys));
+    overflow-y:auto;
+    width:100%;
+    overflow-x:hidden;
+    overflow-wrap: anywhere;
+    word-break: break-all;
 }
 
 #ifhaveundefind{

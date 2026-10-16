@@ -11,7 +11,8 @@
             html,body{
                 margin:0;
                 height:100%;
-                background-color:#FAF9F6;
+                background-color:#2B2B2B;
+                
             }
 
             body{
@@ -53,7 +54,7 @@
             }
             
             #blackdiv{
-                position:fixed;
+                position:absolute;
                 pointer-events:none;
                 height:100%;
                 width:100%;
@@ -62,7 +63,7 @@
                 background:black;
             }
             #whitediv{
-                position:fixed;
+                position:absolute;
                 pointer-events:none;
                 height:100%;
                 width:100%;
@@ -80,21 +81,25 @@
                 0%{opacity:1;}
                 100%{opacity:0;}
             }
-            div{
-                position:absolute;
-            }
             #textdiv{
-                width:94%;
+                width:93%;
                 overflow-y:auto;
                 position:fixed;
                 z-index:1;
-                left:3%;
-                top:3%;
+                top:10%;
                 font-size:calc(0.6*var(--tenvys));
-                height:92%;
+                background-color:#FAF9F6;
+                padding-left:3%;
+                padding-right: 4%;
+                padding-bottom: 10%;
+                bottom:0;
             }
             h1{
                 text-align:center;
+                color:#FAF9F6;
+                position:fixed;
+                z-index:1;
+                width:100%;
             }
             table{
                 border: black solid 2px;
@@ -115,8 +120,9 @@
         </style>
     </head>
     <body>
+        <h1 id="title">人类语语法</h1>
         <div id="textdiv">
-            <h1 id="title">人类语语法</h1>
+            
             <div id="content">
             <h2>【目录】</h2>
             <a href="#" onclick="nowdiv='grammarbase';rediv();">人类语语法基础</a>
@@ -154,7 +160,7 @@
             <tr><th>字母</th><th>音值</th><th>说明</th></tr>
             <tr><td>m</td><td>/m/</td><td>双唇鼻音</td></tr>
             <tr><td>n</td><td>/n/</td><td>齿龈鼻音；作韵尾时使前面元音鼻化</td></tr>
-            <tr><td>p</td><td>/pʰ, p, b/</td><td>自由变体（送气／不送气／浊）</td></tr>
+            <tr><td>p</td><td>/pʰ, p, b/</td><td>自由变体（送气/不送气/浊）</td></tr>
             <tr><td>t</td><td>/tʰ, t, d/</td><td>自由变体</td></tr>
             <tr><td>k</td><td>/kʰ, k, g/</td><td>自由变体</td></tr>
             <tr><td>v</td><td>/f ~ v/</td><td>唇齿擦音，清浊自由</td></tr>

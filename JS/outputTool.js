@@ -1,6 +1,6 @@
 const e = {};
 document.querySelectorAll('[id]').forEach(el => e[el.id] = el);
-const tvh = ["t","v","h","l","m","p","k","j","[","]",",",".",":","'"];
+const tvh = ["t","v","h","l","m","p","k","j","[","]",",",".",":","'",'"',"‘","’","“","”"];
 const lelist={
     "ta": "00",
     "ti": "01",
@@ -154,6 +154,7 @@ e.ifhaveundefind.style.display = "none";
 e.t0.addEventListener("keydown",(event)=>{
     if(event.key=="Enter"){
         var temp = e.t0.value;
+        temp = temp.replace(/[“”‘’]/g,"'");
         e.ifhaveundefind.style.display="none";
         if(/^[\x00-\x7F]*$/.test(temp) == 1){
             var output = [];
@@ -245,6 +246,7 @@ e.t0.addEventListener("keydown",(event)=>{
                 
             }
             e.output.innerHTML = output.join("");
+            
         }
         else{
             alert("Error: 无法转化的输入");
