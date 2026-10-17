@@ -117,6 +117,12 @@
             button:active{
                 opacity:0.5;
             }
+            .word{
+                opacity:0.6;
+                font-size:calc(0.4*var(--tenvys));
+                border-left: rgba(0,0,0,0.6) solid 2px;
+                padding-left: 12px;
+            }
         </style>
     </head>
     <body>
@@ -390,7 +396,9 @@
             <h3>基本语序</h3>
             <p>主语 → 谓语 → 宾语（SVO）。人类语是分析语，保持 SVO 语序很重要。</p>
             <p>kionvi lujon pa kyvi..猫看见了一只老鼠。</p>
+            <p class="word">kionvi 猫  lujon 看到  pa 一个  kyvi 老鼠</p>
             <p>se je so hashe na lyvy ja si..我爱这世界与其中的一切。</p>
+            <p class="word">se 我  je 喜欢  so 这个  hashe 世界  na 和  lyvy 所有；一切  ja 在  si 第三人称单数</p>
 
             <h3>修饰成分的位置</h3>
 
@@ -403,10 +411,11 @@
             <h3>从句的两种形式</h3>
             <p>在不严谨的情况下，可以像汉语一样把从句封装成形容词（关系化）。由于人类语形容词在名词前，因此这种方法可以把从句前置：</p>
             <p>su lio pe hihe nu ne lio vas..<br/>su lio pe ne lio vas non hihe..<br/>这里有两个没有人的岛屿。</p>
+            <p class="word">su 这里  lio 存在  pe 两个  hihe 岛屿  nu 从句指示词  ne 否定  vas 人  non 形容指示词</p>
 
             <h3>间接宾语</h3>
             <p>"把 X 给 Y"用 lon（给）：tasvas lon [mama] pa teva.[].孩子给了妈妈一朵花。</p>
-        
+            <p class="word">tasvas 孩子  lon 给  [mama] 妈妈  pa 一个  teva 花</p>        
 
             </div>
 
@@ -415,19 +424,24 @@
             <h3>从句后置</h3>
             <p>用从句指示词 nu，从句放在所修饰的词之后：</p>
             <p>su lio pe hihe nu ne lio vas..这里有两个没有人的岛屿。</p>
-            <p>nus ton len pa tistua nu kua losjon has..试图建造一座通往天际的高塔。</p>
+            <p class="word">su 这里  lio 存在  pe 两个  hihe 岛屿  nu 从句指示词  ne 否定  vas 人</p>
+            <p>nus ton len pa tistua nu konkua losjon has..试图建造一座通往天际的高塔。</p>
+            <p class="word">nus 承接指示词  ton 尝试  len 制作；建造；做  pa 一个  tistua 塔  nu 从句指示词  konkua 可以  losjon 到  has 天空</p>
 
             <h3>名词性从句</h3>
             <p>nu 引导的从句可直接作主语或宾语:<br/>kasvas tyjon jen lio pa menvio, nus nan kivas ne len lyvy.<br/>,.<br/>恶人获胜的唯一条件就是好人袖手旁观。</p>
+            <p class="word">kasvas 坏人  tyjon 胜利  jen 只  lio 存在  pa 一个  menvio 条件  nus 承接指示词  nan 是  kivas 好人  ne 否定  len 制作；建筑；做  lyvy 一切</p>
             <h3>从句的两种形式</h3>
             <p>在不严谨的情况下，可以像汉语一样把从句封装成形容词（关系化）。由于人类语形容词在名词前，因此这种方法可以把从句前置：</p>
             <p>su lio pe hihe nu ne lio vas..<br/>su lio pe ne lio vas non hihe..<br/>这里有两个没有人的岛屿。</p>
+            <p class="word">su 这里  lio 存在  pe 两个  hihe 岛屿  nu 从句指示词  ne 否定  vas 人  non 形容指示词</p>
             </div>
 
             <div id="question">
             <h2>【疑问句】</h2>
             <h3>一般疑问句</h3>
             <p>在陈述句结尾加表疑问的助词 sen。<br/>sa losjon [tupelin] sen.[].你到都柏林了吗？</p>
+            <p class="word">sa 你 losjon 到 [tupelin] 都柏林 sen 疑问词</p>
             <p>阅读时句末语调上扬。</p>
 
             <h3>特殊疑问句</h3>
@@ -445,6 +459,7 @@
 
             <h3>疑问强化</h3>
             <p>疑问词与 sen 连用可表示"究竟/到底"：sa losjon sua sen..你到底去了哪里？</p>
+            <p class="word">sa 你 losjon 到 sua 哪里 sen 疑问词</p>
             </div>
 
             <div id="tense">
