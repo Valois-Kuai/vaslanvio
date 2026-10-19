@@ -154,7 +154,7 @@ body{
     font-size:calc(0.3*var(--tenvys));
 }
 #kankin3:active{
-    opacity:0.5;
+    opacity:0.5 !important;
 }
 
 #ven0{
@@ -204,7 +204,6 @@ body{
     border-color:#a7d7f3;
     white-space:normal;
     padding:2px;
-    font-size:calc(0.3*var(--tenvys));
     background:black;
     border-style:solid;
     color:white;
@@ -252,4 +251,29 @@ body{
 nav{
     position:fixed;
     opacity:0;
+}
+
+#puzzle{
+    position:fixed;
+    border-width:4px;
+    left:0%;
+    bottom:25%;
+    height:calc(2*var(--tenvys));
+    width:calc(4.5*var(--tenvys));
+    border-color:#1E6FD9;
+    white-space:normal;
+    padding:2px;
+    background:black;
+    border-style:solid;
+    color:white;
+    font-family:"vaslanvio";
+    font-size:calc(0.4*var(--tenvys));
+    opacity:0;
+    animation: kankinkosvion 1s ease-in-out forwards;
+    animation-delay:1s;
+    z-index:1;
+}
+
+button:active{
+    opacity:0.5 !important;
 }

@@ -1,0 +1,183 @@
+html,body{
+    margin:0px;
+    height:100%;
+    background-color:rgba(255,255,255,1);
+}
+
+body{
+    padding:2px;
+    box-sizing:border-box;
+    font-family:"vaslanvio";
+    letter-spacing:0.5px;
+    color:rgba(0,0,0,1);
+    font-size:var(--tenvys);
+    overflow-y:auto;
+    ;
+}
+
+:root{
+    --tenvys: clamp(1vh,5vw,5vh);
+}
+
+
+#title{
+    position:fixed;
+    width:100%;
+    text-align:center;
+    font-size: calc(0.65*var(--tenvys));
+}
+
+#floor{
+    position:fixed;
+    font-size: calc(0.4*var(--tenvys));
+    right:1%;
+}
+
+@keyframes maskout{
+    0% {opacity:1}
+    100% {opacity:0}
+}
+
+#black{
+    position:fixed;
+    z-index:256;
+    pointer-events:none;
+    width:100%;
+    height:100%;
+    background: black;
+    opacity:0;
+    animation: maskout 0.5s ease-out forwards;
+}
+
+#babeldiv{
+    position:fixed;
+    width:calc(18*var(--tenvys));
+    background:#FAF9F6;
+    top: calc(2*var(--tenvys));
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #FFF8E7;
+    height: calc(8*var(--tenvys));
+    overflow-y: auto;
+    
+}
+
+#babel{
+    width:100%;
+}
+
+#center{
+    position:fixed;
+    top:calc(10*var(--tenvys));
+    height: calc(2*var(--tenvys));
+}
+
+#brick{
+    position:fixed;
+    font-size:calc(0.5*var(--tenvys));
+    left:1%;
+}
+
+#rule{
+    opacity:0.6;
+    position:fixed;
+    left:50%;
+    transform: translateX(-50%);
+    font-size: calc(0.5*var(--tenvys));
+}
+
+#build{
+    position:fixed;
+    right:0;
+    height:calc(1.6*var(--tenvys));
+    font:inherit;
+    font-size:calc(0.5*var(--tenvys));
+    padding-left:calc(0.8*var(--tenvys));
+    padding-right:calc(0.8*var(--tenvys));
+    z-index:2;
+    border:solid 2px;
+    background: #3F5C54;
+    color:white;
+}
+
+#repage{
+    background:#1E6FD9;
+    font-size:calc(0.6*var(--tenvys));
+    border:2px solid #1E6FD9;
+    box-shadow:inset 0 0 0 1px white;
+    color:white;
+    position:fixed;
+    left:2%;
+    top:2%;
+    z-index:2;
+}
+
+button:active{
+    opacity:0.5 !important;
+}
+
+@keyframes maskin{
+    0%{opacity:0}
+    100%{opacity:1}
+}
+
+#sakua{
+    position:fixed;
+    opacity:0;
+}
+
+#puzzlediv{
+    position:fixed;
+    bottom:0;
+    top:calc(12*var(--tenvys));
+    width:98%;
+    left:50%;
+    transform: translateX(-50%);
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: calc(0.3*var(--tenvys));
+}
+
+@keyframes slideout{
+    0%{transform: translateX(-50%);opacity:1;}
+    100%{transform:translateX(-250%);opacity:0;}
+}
+
+@keyframes slidein{
+    0%{transform: translateX(150%);opacity:0}
+    100%{transform:translateX(-50%);opacity:1}
+}
+
+
+.puzzlechoice{
+    position:relative;
+    width:100%;
+    text-align:center;
+    background:inherit;
+    border: solid 2px black;
+    font:inherit;
+    font-size:calc(0.5*var(--tenvys));
+    height: calc(1.8*var(--tenvys))
+}
+
+#result{
+    opacity:0.6;
+    font-size: calc(0.6*var(--tenvys));
+    position:fixed;
+    left:2%;
+    bottom:2%;
+}
+
+#next{
+    background:inherit;
+    border: solid 2px black;
+    font:inherit;
+    position:sticky;
+    bottom:2%;
+    background:white;
+}
+
+#puzzletext{
+    margin:0;
+}

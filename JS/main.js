@@ -89,3 +89,12 @@ window.addEventListener("pageshow",(evt)=>{
         HuaTioMeVion1.style.opacity=0;
     }
 });
+
+var puzzle = document.createElement("button");
+puzzle.id = "puzzle";
+puzzle.textContent = "小游戏：《重建巴别塔》";
+document.body.appendChild(puzzle);
+puzzle.onclick = ()=>{
+    blackdiv.style.animation = "black 0.5s ease-out forwards";
+    setTimeout(()=>{window.location.href="./littleprogramme/puzzle.html";},500);
+}
