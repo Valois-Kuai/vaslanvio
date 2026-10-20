@@ -12,6 +12,8 @@ e.repage.onclick = ()=>{
 function renumber(){
     e.floor.textContent = `目前你已经搭建了${floor}层`;
     e.brick.textContent = `现在你有${brick}个砖块`;
+    localStorage.setItem("brick",brick);
+    localStorage.setItem("floor",floor);
 }
 
 renumber();
@@ -112,9 +114,7 @@ function repuzzle(){
     }
 }
 
-repuzzle();
-refloor();
-redraw();
+
 
 function refloor(){
     var floorneed = Math.floor(5 + 10*Math.log((floor+1)));
@@ -158,3 +158,7 @@ function redraw(){
         cvs.stroke();
     }
 }
+
+repuzzle();
+refloor();
+redraw();
