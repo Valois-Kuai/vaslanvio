@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>人类语文章/语料</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="../favicon.ico" sizes="any"/>
+        <link rel="stylesheet" type="text/css" href="../CSS/font.css"/>
+        <style>
+            /*现在已经懒得再分三个文件了，想着大概CSS不会太多罢，就内联罢。增删改查是未来的我的事情。*/
+            #black{
+                position:fixed;
+                width:100%;
+                height:100%;
+                background:white;
+                z-index:256;
+                opacity: 0;
+                pointer-events:none;
+                animation: blackout 0.5s ease-in-out forwards
+            }
+            @keyframes blackout{
+                0%{opacity:1}
+                100%{opacity:0}
+            }
+            @keyframes blackin{
+                0%{opacity:0}
+                100%{opacity:1}
+            }
+            :root{
+                --tenvys: clamp(24px,8vw,8vh);
+            }
+            html,body{
+                margin:0;
+                font-family:"vaslanvio";
+                font-size:calc(0.4*var(--tenvys));
+            }
+
+            #repage{
+                background:#1E6FD9;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #1E6FD9;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+                position:fixed;
+                left:2%;
+                top:2%;
+            }
+
+            button:active{
+                opacity:0.5 !important;
+            }
+            #a{
+                position:fixed;
+                top:9%;
+                left:2%;
+                display: flex;
+                flex-direction: column;
+                gap:8px;
+                right:2%;
+            }
+            #input{
+                font:inherit;
+                border: black 2px solid;
+                height:calc(1*var(--tenvys));
+                width:80%;
+            }
+            #input:focus{
+                outline:none;
+            }
+            #b{
+                display:flex;
+                flex-direction:row;
+            }
+            #search{
+                border:#7BC48A 2px solid;
+                background:white;
+                width:20%;
+                font:inherit;
+            }
+            .textbutton{
+                border: #D9C9A3 2px solid;
+                background: white;
+                width:100%;
+                font:inherit;
+                text-align: left;
+                position:relative;
+            }
+            .special{
+                position:absolute;
+                top:0;
+                margin:0;
+                right:2px;
+                opacity:0.6;
+                font-size:calc(0.25*var(--tenvys));
+            }
+        </style>
+    </head>
+    <body>
+        <div id="a">
+            <p style="margin:0;opacity:0.4">根据关键词搜索文章</p>
+            <div id="b"></div>
+        </div>
+        
+    </body>
+    <script>
+        var black = document.createElement("div");
+        black.id = "black";
+        document.body.appendChild(black);
+
+        var repage = document.createElement("button");
+        repage.id = "repage";
+        document.body.appendChild(repage);
+        repage.textContent = "回到主页";
+        repage.onclick = ()=>{
+            black.style.animation = "blackin 0.5s ease-in-out forwards";
+            setTimeout(()=>{window.location.href="../main.html"},500)
+        }
+
+        var input = document.createElement("input");
+        input.type = "text";
+        input.id = "input";
+        document.getElementById("b").appendChild(input);
+
+        
+
+        var search = document.createElement("button");
+        search.id = "search";
+        document.getElementById("b").appendChild(search);
+        search.textContent="搜索";
+
+        var textdiv = document.createElement("div");
+        textdiv.id = "textdiv";
+        document.getElementById("a").appendChild(textdiv);
+
+        var listoftext = {
+            0:{l:"jansus konma [havelika] ne muakio konmo [hamelika]",v:"[][]",c:"为什么西非不殖民南美",p:"jansuskonmahavelikanemuakiokonmohamelika",d:"西非到南美，比西欧到南美近得多，为什么历史上不是西非殖民了南美？",s:"原创 / 作者：[]"}, //latin vaslanvio chinese position detail special
+            1:{l:"sa jamy pa netisvinnon teme", v:"",c:"你戴着一顶永恒的帽子",p:"sajamypanetisvinnonteme",d:"帽子，宇宙，死亡，JavaScript与状态机",s:"原创 / 作者：[]"},
+        }
+
+        var show = [];
+        for(var i in listoftext){
+            show.push(i);
+        }
+
+        var text = [];
+
+        function retext(){
+            textdiv.textContent = "";
+            for(let i in show){
+                text[Number(i)] = [];
+                text[Number(i)][0] = document.createElement("button");
+                text[Number(i)][0].className = "textbutton";
+                textdiv.appendChild(text[Number(i)][0]);
+                text[Number(i)][1] = document.createElement("div");
+                text[Number(i)][1].style.whiteSpace = "pre-line";
+                text[Number(i)][1].innerHTML = `<span style="font-size:calc(0.2*var(--tenvys))">${listoftext[i].l}</span>\n<span>${listoftext[i].v}</span>\n<span>${listoftext[i].c}</span>\n<span style="opacity:0.6;font-size:calc(0.3*var(--tenvys))">${listoftext[i].d}</span>`
+                text[Number(i)][0].appendChild(text[Number(i)][1]);
+                if(listoftext[i].s != ""){
+                    text[Number(i)][2] = document.createElement("p")
+                    text[Number(i)][2].className = "special";
+                    text[Number(i)][2].textContent = listoftext[i].s;
+                    text[Number(i)][0].appendChild(text[Number(i)][2]);
+                }
+                text[Number(i)][0].onclick = () => {
+                    window.location.href = `./${listoftext[i].p}.html`;
+                }
+            }
+        }
+
+        retext();
+
+        function research(){
+            show = [];
+            for(let i in listoftext){
+                if(Object.values(listoftext[i]).some(v => String(v).includes(input.value))){ //这句是AI写的，完全看不懂
+                    show.push(i);
+                }
+            }
+            retext();
+        }
+
+        search.onclick = ()=>{
+            research();
+        }
+        
+        input.addEventListener("keydown",(evt)=>{
+            if(evt.key == "Enter"){
+                research();
+            }
+        })
+
+        //记得补上页面缓存，防止返回时动画卡住
+        window.addEventListener("pageshow",(evt)=>{
+            if(evt.persisted){
+                black.style.animation="none";
+                black.style.opacity=0;
+            }
+        });
+    </script>
+</html>

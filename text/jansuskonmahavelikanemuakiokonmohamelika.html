@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>为什么西非不殖民南美</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="../favicon.ico" sizes="any"/>
+        <link rel="stylesheet" type="text/css" href="../CSS/font.css"/>
+        <style>
+             :root{
+                --tenvys: clamp(24px,8vw,8vh);
+            }
+            html,body{
+                margin:0;
+                font-family:"vaslanvio";
+                font-size:calc(0.4*var(--tenvys));
+            }
+
+            #rediv{
+                position:fixed;
+                left:2%;
+                top:2%;
+                z-index:2;
+            }
+            #repage{
+                background:#1E6FD9;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #1E6FD9;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+            }
+
+            #relast{
+                background:#7BC48A;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #7BC48A;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+                left:30%;
+                top:2%;
+            }
+            #translatestatebutton{
+                position:fixed;
+                z-index:2;
+                right:2%;
+                top:2%;
+                background:white;
+                font-size:calc(0.6*var(--tenvys));
+                border: 2px solid #111
+            }
+
+            button:active{
+                opacity:0.5 !important;
+            }
+
+            #titlediv{
+                position:relative;
+                background:#FAF9F6;
+                width:100%;
+                height:calc(3*var(--tenvys));
+            }
+
+            #thetitle{
+                position:absolute;
+                bottom:0;
+                text-align:center;
+                font-size:calc(0.6*var(--tenvys));
+                width:100%;
+            }
+            #textdiv{
+                position:absolute;
+                left:2%;
+                right:2%;
+            }
+
+            summary{
+                white-space:pre-line;
+                list-style:none;
+            }
+            summary::-webkit-details-marker{ /*这是什么啊（恼）*/
+                display:none;
+            }
+
+            details{
+                border: 2px solid #D9C9A3;
+                background: #FFFFFF;
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            .word{
+                opacity:0.6;
+                font-size:calc(0.25*var(--tenvys));
+            }
+        </style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        var title = "为什么西非不殖民南美";
+        var main = {
+            0:{
+                l:"ja vosvenvio,tisvys jakus konma [havelika] tunua konmo [hamelika], nin tusnio jinton jakus konma [julopa].",
+                v:",[][],[].",
+                c:"在地图上，西非到南美的距离，比西欧到南美近得多。",
+                w:"ja-在 vosvenvio-地图 tisvys-长度/距离 jakus-从 konma-西 [havelika]-非洲 tunua-靠近 konmo-南 [hamelika]-美洲/美国 nin-是（接形容词） tusnio-非常 jinton- jakus-从 konma-西 [julopa]-欧洲"
+            },
+            1:{
+                l:"nen ja vinven, konmo [hamelika], jas [julopa] muakio, ne [havelika].",
+                v:",[],[],[].",
+                c:"但是在历史上，南美是被欧洲殖民的，而不是非洲。",
+                w:"nen-但是 ja-在 vinven-历史 konmo-南 [hamelika]-美洲/美国 jas-被动 [julopa]- muakio-殖民 ne-否定 [havelika]-非洲"
+            },
+            2:{
+                l:"jansus.",
+                v:".",
+                c:"为什么？",
+                w:"jansus-为什么"
+            },
+            3:{
+                l:"nos hivoshin sen.",
+                v:".",
+                c:"因为洋流吗？",
+                w:"nos-因为 hivoshin-洋流 sen-表疑问"
+            },
+            4:{
+                l:"ne, nis [julopa] lio konmemi lostishu javin losju, na konma lostishu javin tulos,",
+                v:",[],,",
+                c:"不，即使欧洲有去程时的东北信风和归程时的盛行西风,",
+                w:"ne-否定 nis-虽然 [julopa]-欧洲 lio-存在 konmemi-东北 lostishu-信风 javin-当…时 losju-去 na-和 konma-西 lostishu-信风 javin-当…时 tulos-来"
+            },
+            5:{
+                l:"manio, [havelika] lo kuavin muakio [hamelika], jale mashu tuahilos vio.",
+                v:",[][],.",
+                c:"非洲仍然有机会用逆风航行术殖民美洲。",
+                w:"manio-仍然 [havelika]-非洲 lo-拥有 kuavin-机会 muakio-殖民 [hamelika]-美洲/美国 jale-通过 mashu-逆风的 tuahilos-航行 vio-工具"
+            },
+            6:{
+                l:"nas, hivoshin senvy, jas konkua kinlunua.",
+                v:",,.",
+                c:"所以，洋流问题是可以解决的。",
+                w:"nas-所以 hivoshin-洋流 senvy-问题 jas-被动 konkua-可能（客观） kinlunua-删除"
+            },
+            7:{
+                l:"konkuanon senvy, nan sy kenkon jo toku mylosnua muakio lenvy, nu no maslon nin tusvinnon.",
+                v:",,.",
+                c:"真正的问题，是谁愿意把钱投入回报很慢的殖民事务。",
+                w:"konkuanon-真的 senvy-问题 nan-是（接名词） sy-谁 kenkon-愿意 jo-让 toku-货币 mylosnua-投入 muakio-殖民 lenvy-工作 nu-从句指示词 no-的 maslon-归还 nin-是（接形容词） tusvinnon-慢速的"
+            },
+            8:{
+                l:"[hosuma] tavos, luanua tokulen tinvio jakus [julopa] tunua [sonko].",
+                v:"[],[][].",
+                c:"奥斯曼帝国，切断了从欧洲到中国的贸易线路。",
+                w:"[hosuma]-奥斯曼 tavos-帝国 luanua-分离 tokulen-交易 tinvio-道路 jakus-从 [julopa]-欧洲 tunua-靠近 [sonko]-中国"
+            },
+            9:{
+                l:"kennio [julopa] lion jo toku mylosnua muakio.",
+                v:"[].",
+                c:"欧洲必然需要把钱投入殖民。",
+                w:"kennio-一定 [julopa]-欧洲 lion-需要 jo-让 toku-货币 mylosnua-投入 muakio-殖民"
+            },
+            10:{
+                l:"masnus [havelika], lo hytiovy na kehivos no nenuanon tokulen tinvio.",
+                v:"[],.",
+                c:"反观非洲，有黄金和盐的稳定贸易线路。",
+                w:"masnus-反而 [havelika]-非洲 lo-拥有 hytiovy-黄金 na-和 kehivos-盐 no-的 nenuanon-不变的 tokulen-交易 tinvio-道路"
+            },
+            11:{
+                l:"nas lynon mepa ja [havelika], ne lo losvon muakio.",
+                v:"[],.",
+                c:"所以非洲的统治者们，没有动机殖民。",
+                w:"nas-所以 lynon-全的 mepa-国王 ja-在 [havelika]-非洲 ne-否定 lo-拥有 losvon-动机 muakio-殖民"
+            },
+            12:{
+                l:"kennio, losvon jas, ne jen lion.",
+                v:",,.",
+                c:"当然，动机不是唯一必要的。",
+                w:"kennio-一定 losvon-动机 jas-被动 ne-否定 jen-只 lion-需要"
+            },
+            13:{
+                l:"niovy nan [totole], ",
+                v:"[],",
+                c:"例如蒂多雷，",
+                w:"niovy-例子 nan-是（接名词） [totole]-蒂多雷"
+            },
+            14:{
+                l:"jos [totole] muata, nus konkua jenpaloju tusketas no tokulenvos.",
+                v:"[],.",
+                c:"如果蒂多雷扩张，就可以垄断香料的市场。",
+                w:"jos-如果 [totole]-蒂多雷 muata-扩张（名词或动词） nus-承接 konkua-可能（客观） jenpaloju-垄断 tusketas-调味品/香料 no-的 tokulenvos-商场/市场"
+            },
+            15:{
+                l:"jansus si ne muakio.",
+                v:".",
+                c:"为什么它不去殖民？",
+                w:"jansus-为什么 si-第三人称单数 ne-否定 muakio-殖民"
+            },
+            16:{
+                l:"nos, [totole] ne lo lenkua.",
+                v:",[].",
+                c:"因为，蒂多雷没有能力。",
+                w:"nos-因为 [totole]-蒂多雷 ne-否定 lo-拥有 lenkua-能力"
+            },
+            17:{
+                l:"si no hihe nin tusnio tasnon, na kennio honioloju na [telunate].",
+                v:",[].",
+                c:"它的岛屿太小了，还要和特尔纳特竞争。",
+                w:"si-第三人称单数 no-的 hihe-岛屿 nin-是（接形容词） tusnio-非常 tasnon-小的 na-和 kennio-一定 honioloju-竞争 na-和 [telunate]-特尔纳特"
+            },
+            18:{
+                l:"so jo muata nin konkysnionon.",
+                v:".",
+                c:"这让扩张变得不可能。",
+                w:"so-这 jo-让 muata-扩张（名词或动词） nin-是（接形容词） konkysnionon-不可能的"
+            },
+            19:{
+                l:"nusly,",
+                v:",",
+                c:"综上所述，",
+                w:"nusly-总之"
+            },
+            20:{
+                l:"losvon na lenkua, jas muakio lion.",
+                v:",.",
+                c:"殖民需要动机和能力。",
+                w:"losvon-动机 na-和 lenkua-合适的 jas-被动 muakio-殖民 lion-需要"
+            },
+            21:{
+                l:"nosvy nu konma [havelika] ne muakio konmo [hamelika],",
+                v:"[][],",
+                c:"西非没有殖民南美的原因，",
+                w:"nosvy-原因 nu-从句指示词 konma-西 [havelika]-非洲 ne-否定 muakio-殖民 konmo-南 [hamelika]-美洲/美国"
+            },
+            22:{
+                l:"ne nan tisvys, nan losvon.",
+                v:",.",
+                c:"不是距离，是动机。",
+                w:"ne-否定 nan-是（接名词） tisvys-长度/距离 nan-是（接名词） losvon-动机"
+            }
+        };
+
+        var rediv = document.createElement("div");
+        rediv.id = "rediv";
+        document.body.appendChild(rediv);
+
+        var repage = document.createElement("button");
+        repage.id = "repage";
+        rediv.appendChild(repage);
+        repage.textContent = "回到主页";
+        repage.onclick = ()=>{
+            window.location.href="../main.html";
+        }
+
+        var relast = document.createElement("button");
+        relast.id = "relast";
+        rediv.appendChild(relast);
+        relast.textContent = "回到上一页";
+        relast.onclick = ()=>{
+            window.location.href="./main.html";
+        }
+
+        var translate = 1;
+
+        var titlediv = document.createElement("div");
+        titlediv.id = "titlediv";
+        document.body.appendChild(titlediv);
+
+        var thetitle = document.createElement("p")
+        thetitle.id = "thetitle";
+        thetitle.textContent = title;
+        titlediv.appendChild(thetitle);
+
+        var textdiv = document.createElement("div");
+        textdiv.id = "textdiv";
+        document.body.appendChild(textdiv);
+        
+
+        var translatestatebutton = document.createElement("button");
+        translatestatebutton.id = "translatestatebutton";
+        translatestatebutton.textContent = "关闭翻译";
+        function restate(){
+            if(translate == 1){
+                translate = 0;
+                rebuild();
+                translatestatebutton.textContent = "开启翻译";
+            }
+            else{
+                translate = 1;
+                rebuild();
+                translatestatebutton.textContent = "关闭翻译";
+            }
+            
+        }
+        translatestatebutton.onclick = ()=>{
+            restate();
+        }
+        document.body.appendChild(translatestatebutton);
+
+        function rebuild(){
+            textdiv.textContent = "";
+            if(translate == 1){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>\n${main[i].c}`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            if(translate == 0){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="font-size:calc(0.8*var(--tenvys));overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            
+        }
+
+        rebuild();
+    </script>
+</html>

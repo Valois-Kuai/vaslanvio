@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>模板文章</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="../favicon.ico" sizes="any"/>
+        <link rel="stylesheet" type="text/css" href="../CSS/font.css"/>
+        <style>
+             :root{
+                --tenvys: clamp(24px,8vw,8vh);
+            }
+            html,body{
+                margin:0;
+                font-family:"vaslanvio";
+                font-size:calc(0.4*var(--tenvys));
+            }
+
+            #rediv{
+                position:fixed;
+                left:2%;
+                top:2%;
+                z-index:2;
+            }
+            #repage{
+                background:#1E6FD9;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #1E6FD9;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+            }
+
+            #relast{
+                background:#7BC48A;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #7BC48A;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+                left:30%;
+                top:2%;
+            }
+            #translatestatebutton{
+                position:fixed;
+                z-index:2;
+                right:2%;
+                top:2%;
+                background:white;
+                font-size:calc(0.6*var(--tenvys));
+                border: 2px solid #111
+            }
+
+            button:active{
+                opacity:0.5 !important;
+            }
+
+            #titlediv{
+                position:relative;
+                background:#FAF9F6;
+                width:100%;
+                height:calc(3*var(--tenvys));
+            }
+
+            #thetitle{
+                position:absolute;
+                bottom:0;
+                text-align:center;
+                font-size:calc(0.6*var(--tenvys));
+                width:100%;
+            }
+            #textdiv{
+                position:absolute;
+                left:2%;
+                right:2%;
+            }
+
+            summary{
+                white-space:pre-line;
+                list-style:none;
+            }
+            summary::-webkit-details-marker{ /*这是什么啊（恼）*/
+                display:none;
+            }
+
+            details{
+                border: 2px solid #D9C9A3;
+                background: #FFFFFF;
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            .word{
+                opacity:0.6;
+                font-size:calc(0.25*var(--tenvys));
+            }
+        </style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        var title = "so nan taven  这是标题";
+        var main = {
+            0:{
+                l:"so nan pa lyven.",
+                v:".",
+                c:"这是一个句子。",
+                w:"so 这 nan 是(接名词) pa 一个 lyven 句子",
+            }
+        };
+
+        var rediv = document.createElement("div");
+        rediv.id = "rediv";
+        document.body.appendChild(rediv);
+
+        var repage = document.createElement("button");
+        repage.id = "repage";
+        rediv.appendChild(repage);
+        repage.textContent = "回到主页";
+        repage.onclick = ()=>{
+            window.location.href="../main.html";
+        }
+
+        var relast = document.createElement("button");
+        relast.id = "relast";
+        rediv.appendChild(relast);
+        relast.textContent = "回到上一页";
+        relast.onclick = ()=>{
+            window.location.href="./main.html";
+        }
+
+        var translate = 1;
+
+        var titlediv = document.createElement("div");
+        titlediv.id = "titlediv";
+        document.body.appendChild(titlediv);
+
+        var thetitle = document.createElement("p")
+        thetitle.id = "thetitle";
+        thetitle.textContent = title;
+        titlediv.appendChild(thetitle);
+
+        var textdiv = document.createElement("div");
+        textdiv.id = "textdiv";
+        document.body.appendChild(textdiv);
+        
+
+        var translatestatebutton = document.createElement("button");
+        translatestatebutton.id = "translatestatebutton";
+        translatestatebutton.textContent = "关闭翻译";
+        function restate(){
+            if(translate == 1){
+                translate = 0;
+                rebuild();
+                translatestatebutton.textContent = "开启翻译";
+            }
+            else{
+                translate = 1;
+                rebuild();
+                translatestatebutton.textContent = "关闭翻译";
+            }
+            
+        }
+        translatestatebutton.onclick = ()=>{
+            restate();
+        }
+        document.body.appendChild(translatestatebutton);
+
+        function rebuild(){
+            textdiv.textContent = "";
+            if(translate == 1){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>\n${main[i].c}`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            if(translate == 0){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="font-size:calc(0.8*var(--tenvys));overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            
+        }
+
+        rebuild();
+    </script>
+</html>

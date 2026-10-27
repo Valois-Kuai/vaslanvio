@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>模板文章</title>
+        <meta charset="utf-8">
+        <link rel="icon" href="../favicon.ico" sizes="any"/>
+        <link rel="stylesheet" type="text/css" href="../CSS/font.css"/>
+        <style>
+             :root{
+                --tenvys: clamp(24px,8vw,8vh);
+            }
+            html,body{
+                margin:0;
+                font-family:"vaslanvio";
+                font-size:calc(0.4*var(--tenvys));
+            }
+
+            #rediv{
+                position:fixed;
+                left:2%;
+                top:2%;
+                z-index:2;
+            }
+            #repage{
+                background:#1E6FD9;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #1E6FD9;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+            }
+
+            #relast{
+                background:#7BC48A;
+                font-size:calc(0.6*var(--tenvys));
+                border:2px solid #7BC48A;
+                box-shadow:inset 0 0 0 1px white;
+                color:white;
+                left:30%;
+                top:2%;
+            }
+            #translatestatebutton{
+                position:fixed;
+                z-index:2;
+                right:2%;
+                top:2%;
+                background:white;
+                font-size:calc(0.6*var(--tenvys));
+                border: 2px solid #111
+            }
+
+            button:active{
+                opacity:0.5 !important;
+            }
+
+            #titlediv{
+                position:relative;
+                background:#FAF9F6;
+                width:100%;
+                height:calc(3*var(--tenvys));
+            }
+
+            #thetitle{
+                position:absolute;
+                bottom:0;
+                text-align:center;
+                font-size:calc(0.6*var(--tenvys));
+                width:100%;
+            }
+            #textdiv{
+                position:absolute;
+                left:2%;
+                right:2%;
+            }
+
+            summary{
+                white-space:pre-line;
+                list-style:none;
+            }
+            summary::-webkit-details-marker{ /*这是什么啊（恼）*/
+                display:none;
+            }
+
+            details{
+                border: 2px solid #D9C9A3;
+                background: #FFFFFF;
+                padding-left: 16px;
+                padding-right: 16px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+            }
+
+            .word{
+                opacity:0.6;
+                font-size:calc(0.25*var(--tenvys));
+            }
+        </style>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        var title = "你戴着一顶永恒的帽子（视频稿）";
+        var main = {
+            0:{
+                l:"sa jamy pa teme.",
+                v:".",
+                c:"你戴着一顶帽子。",
+                w:"sa-你 jamy-穿着 pa-1 teme-帽子"
+            },
+            1:{
+                l:"sa lan sa ne jamy pa teme.",
+                v:".",
+                c:"你说你没有戴帽子？",
+                w:"sa-你 lan-说话 sa-你 ne-否定 jamy-穿着 pa-1 teme-帽子"
+            },
+            2:{
+                l:"nus jami so kosvion tyvin, sa lojon pa netisvinnon teme mivin.",
+                v:",.",
+                c:"那么在这个视频结束后，你将会得到一顶永恒的帽子。",
+                w:"nus-承接 jami-（时间）在…之后 so-这 kosvion-动画 tyvin-结束 sa-你 lojon-得到 pa-1 netisvinnon-无限期的 teme-帽子 mivin-未来"
+            },
+            3:{
+                l:"nen vyspa, san lu pa vas sio jamy pa teme.",
+                v:",.",
+                c:"但是首先，我们来看一个人如何戴上帽子。",
+                w:"nen-但是 vyspa-第一 san-我们 lu-看 pa-1 vas-人 sio-怎么 jamy-穿着 pa-1 teme-帽子"
+            },
+            4:{
+                l:"jale vevio.",
+                v:".",
+                c:"用程序。",
+                w:"jale-通过 vevio-程序"
+            },
+            5:{
+                l:"jos san le kankin nu liove nan “temepa”, so vas jamy [vesu]teme.",
+                v:"'',[].",
+                c:"如果我们按下名为“帽子一”的按钮，这个人就会戴上菲斯帽。",
+                w:"jos-如果 san-我们 le-使用 kankin-按钮 nu-从句指示词 liove-名字 nan-是（接名词） “temepa”-“帽子一” so-这 vas-人 jamy-穿着 [vesu]teme-菲斯帽"
+            },
+            6:{
+                l:"jos san le kankin nu liove nan “temepe”, so vas jamy tavateme.",
+                v:"'',.",
+                c:"如果我们按下名为“帽子二”的按钮，这个人就会戴上木髓盔。",
+                w:"jos-如果 san-我们 le-使用 kankin-按钮 nu-从句指示词 liove-名字 nan-是（接名词） “temepe”-“帽子二” so-这 vas-人 jamy-穿着 tavateme-木髓盔"
+            },
+            7:{
+                l:"konkuavy nan, se jinje [vesu]teme, nas se listy temepa.",
+                v:",[],.",
+                c:"事实上，我更喜欢菲斯帽，所以我选择“帽子一”",
+                w:"konkuavy-真理 nan-是（接名词） se-我 jinje-偏爱 [vesu]teme-菲斯帽 nas-所以 se-我 listy-决定 temepa-“帽子一”"
+            },
+            8:{
+                l:"nen jos san lislion so vas ne jamy lyvy teme, san konken las sus sen.",
+                v:",.",
+                c:"但是如果我们想要这个人不带任何帽子，我们应该写什么呢？",
+                w:"nen-但是 jos-如果 san-我们 lislion-想要 so-这 vas-人 ne-否定 jamy-穿着 lyvy-一切 teme-帽子 san-我们 konken-应该（should） las-书写 sus-什么 sen-表疑问"
+            },
+            9:{
+                l:"kinlunua so kosvy sen.",
+                v:".",
+                c:"删除这个帽子变量吗？",
+                w:"kinlunua-删除 so-这 kosvy-变量 sen-表疑问"
+            },
+            10:{
+                l:"ne, nos jos san kinlunua so kosvy, tuavy “juslentemenokus” juslen pa nelionon kosvy mivin.",
+                v:",,''.",
+                c:"不，因为如果我们删除这个变量，“检测帽子状态”函数就会检查一个不存在的变量。",
+                w:"ne-否定 nos-因为 jos-如果 san-我们 kinlunua-删除 so-这 kosvy-变量 tuavy-函数 “juslentemenokus”-实验检测 juslen-实验 pa-1 nelionon-不存在的 kosvy-变量 mivin-未来"
+            },
+            11:{
+                l:"so len kys.",
+                v:".",
+                c:"这会产生错误。",
+                w:"so-这 len-做 kys-错了"
+            },
+            12:{
+                l:"(//so kys ja [javasukuletu] nan “jajonkys”)",
+                v:"(//[]'",
+                c:"（//这个错误在JavaScript中称为“引用错误”）",
+                w:"//so-注释 kys-错了 ja-在 [javasukuletu]-JavaScript nan-是（接名词） “jajonkys”-引用错误"
+            },
+            13:{
+                l:"konkuavy nan, se lo pa maslisnon vio.",
+                v:",.",
+                c:"事实上，我有一个更好的办法。",
+                w:"konkuavy-真理 nan-是（接名词） se-我 lo-拥有 pa-1 maslisnon-简单容易的 vio-工具"
+            },
+            14:{
+                l:"san tusnua pa kankin.",
+                v:".",
+                c:"我们增加一个按钮。",
+                w:"san-我们 tusnua-复制 pa-1 kankin-按钮"
+            },
+            15:{
+                l:"le so kankin, teme no kosvy nuajon pa lysnon vys.",
+                v:",.",
+                c:"按下这个按钮，帽子变量就会变成一个其他的值。",
+                w:"le-使用 so-这 kankin-按钮 teme-帽子 no-的 kosvy-变量 nuajon-变成 pa-1 lysnon-其他的 vys-数字"
+            },
+            16:{
+                l:"[hua], san tyjon jo so vas ne jamy lyvy teme.",
+                v:"[],.",
+                c:"哇，我们成功让这个人不戴任何帽子了。",
+                w:"[hua]-哇（叹词） san-我们 tyjon-成功 jo-让 so-这 vas-人 ne-否定 jamy-穿着 lyvy-一切 teme-帽子"
+            },
+            17:{
+                l:"so vas ne jamy teme, nen si ne lo teme sen.",
+                v:",.",
+                c:"这个人不戴帽子，但是他没有帽子吗？",
+                w:"so-这 vas-人 ne-否定 jamy-穿着 teme-帽子 nen-但是 si-第三人称单数 ne-否定 lo-拥有 teme-帽子 sen-表疑问"
+            },
+            18:{
+                l:"kennio si lo.",
+                v:".",
+                c:"显然不是。",
+                w:"kennio-一定 si-第三人称单数 lo-拥有"
+            },
+            19:{
+                l:"si lo teme no kosvy, nus so kosvy lo pa lionvys.",
+                v:",.",
+                c:"他有帽子变量，而且这个变量有一个值。",
+                w:"si-第三人称单数 lo-拥有 teme-帽子 no-的 kosvy-变量 nus-承接 so-这 kosvy-变量 lo-拥有 pa-1 lionvys-价值"
+            },
+            20:{
+                l:"nas, san jusjon.",
+                v:",.",
+                c:"所以，我们知道了。",
+                w:"nas-所以 san-我们 jusjon-知道"
+            },
+            21:{
+                l:"ne jamy teme nan pa kus nu jamy teme.",
+                v:".",
+                c:"不戴帽子只是戴帽子的一种状态。",
+                w:"ne-否定 jamy-穿着 teme-帽子 nan-是（接名词） pa-1 kus-状态 nu-从句指示词 jamy-穿着 teme-帽子"
+            },
+            22:{
+                l:"tokunonnio, so mashionnua [heteke] no “mualiojus”.",
+                v:",[]''.",
+                c:"这恰好对应了海德格尔的“现象学”。",
+                w:"tokunonnio-随机地 so-这 mashionnua-反射 [heteke]-海德格尔 no-的 “mualiojus”-现象学"
+            },
+            23:{
+                l:"“neja” nan pa kus nu “lio”",
+                v:"''''",
+                c:"缺席是存在的一种状态。",
+                w:"“neja”-缺席 nan-是（接名词） pa-1 kus-状态 nu-从句指示词 “lio”-存在"
+            },
+            24:{
+                l:"vyjon ne jamy teme nan pa kus nu jamy teme.",
+                v:".",
+                c:"既然不戴帽子是戴帽子的一个状态，",
+                w:"vyjon-既然 ne-否定 jamy-穿着 teme-帽子 nan-是（接名词） pa-1 kus-状态 nu-从句指示词 jamy-穿着 teme-帽子"
+            },
+            25:{
+                l:"nus kannon na kinnon sen.",
+                v:".",
+                c:"那么生与死呢？",
+                w:"nus-承接 kannon-活着的 na-和 kinnon-死去的 sen-表疑问"
+            },
+            26:{
+                l:"tusvinnio, san kenlis kinnonnua jen ne lio lyvy.",
+                v:",.",
+                c:"我们总是认为死亡只是虚无。",
+                w:"tusvinnio-总是 san-我们 kenlis-认为 kinnonnua-死亡 jen-只 ne-否定 lio-存在 lyvy-一切"
+            },
+            27:{
+                l:"javin san kivolen, lis sus nan kinnonnua, panuspanio, kinnonnua no nejusjon jo san vokio.",
+                v:",,,.",
+                c:"当我们躺在床上，思考什么是死亡的时候，我们一次又一次地害怕死亡的未知。",
+                w:"javin-当…时 san-我们 kivolen-躺下 lis-思考 sus-什么 nan-是（接名词） kinnonnua-死亡 panuspanio-一遍又一遍地 kinnonnua-死亡 no-的 nejusjon-未知的 jo-让 san-我们 vokio-害怕"
+            },
+            28:{
+                l:"konkuanio, san lisjon, jami kinnonnua, san no vonvy luanua, nio motentisnon kinlos, ne lio vo, ne lio vin.",
+                v:",,,,,,.",
+                c:"可能，我们会想到，死亡之后，我们的意识断开，像深度睡眠，没有感觉，没有时间概念。",
+                w:"konkuanio-可能 san-我们 lisjon-想到 jami-（时间）在…之后 kinnonnua-死亡 san-我们 no-的 vonvy-意识 luanua-分离 nio-像… motentisnon-深的 kinlos-睡觉 ne-否定 lio-存在 vo-情感 ne-否定 lio-存在 vin-时间"
+            },
+            29:{
+                l:"ni, losju lysnon hashe, hastion joja san no kanve na pa haslostan ja pa honvysvio, kanve nin jintaten, losju kasvos, nu lio netisvinnon ha na kasvo.",
+                v:",,,,,.",
+                c:"或者，去另一个世界，神把我们的心脏和羽毛放在天平两端，心比羽毛重，就到地狱去，那里有永恒的火焰和痛苦。",
+                w:"ni-或 losju-去 lysnon-其他的 hashe-世界 hastion-神 joja-放置 san-我们 no-的 kanve-心脏 na-和 pa-1 haslostan-羽毛 ja-在 pa-1 honvysvio-重量计 kanve-心脏 nin-是（接形容词） jintaten-更重 losju-去 kasvos-地狱 nu-从句指示词 lio-存在 netisvinnon-无限期的 ha-火 na-和 kasvo-痛苦"
+            },
+            30:{
+                l:"san kio kinnonnua.",
+                v:".",
+                c:"我们害怕死亡。",
+                w:"san-我们 kio-害怕（名词） kinnonnua-死亡"
+            },
+            31:{
+                l:"so nan vavi no malo.",
+                v:".",
+                c:"这是生命的本能。",
+                w:"so-这 nan-是（接名词） vavi-生命 no-的 malo-本能"
+            },
+            32:{
+                l:"nus san sio lumen kinnonnua sen.",
+                v:".",
+                c:"那么我们怎么面对死亡呢？",
+                w:"nus-承接 san-我们 sio-怎么 lumen-看待 kinnonnua-死亡 sen-表疑问"
+            },
+            33:{
+                l:"san jusjon kinnon na kannon nan honon jajen.",
+                v:".",
+                c:"我们只要知道生与死是同样的。",
+                w:"san-我们 jusjon-知道 kinnon-死去的 na-和 kannon-活着的 nan-是（接名词） honon-同样的 jajen-只要"
+            },
+            34:{
+                l:"kinnonnua ne nan vavi no tyvin.",
+                v:".",
+                c:"死亡不是生命的终点，",
+                w:"kinnonnua-死亡 ne-否定 nan-是（接名词） vavi-生命 no-的 tyvin-结束"
+            },
+            35:{
+                l:"so nan pa kus nu vavi.",
+                v:".",
+                c:"只是生命的一个状态。",
+                w:"so-这 nan-是（接名词） pa-1 kus-状态 nu-从句指示词 vavi-生命"
+            },
+            36:{
+                l:"san losju kivos jakua, san ne masliojon, hashely tuakus san no vioven, nio san no kus nu teme.",
+                v:",,,.",
+                c:"即使我们去了水草丰美之地，我们不会消失，宇宙保存着我们的数据，就像我们帽子的状态数据一样。",
+                w:"san-我们 losju-去 kivos-天堂 jakua-尽管 san-我们 ne-否定 masliojon-消失 hashely-宇宙 tuakus-保存 san-我们 no-的 vioven-数据 nio-像… san-我们 no-的 kus-状态 nu-从句指示词 teme-帽子"
+            },
+            37:{
+                l:"lyvy mykusju nu kinnon vas, nan tonlen lution si no vioven, vinjon ne lio lyvy vas nu mykusjon si.",
+                v:",,.",
+                c:"对已逝之人的一切回忆，都是试图访问其数据，直到不再有任何人记得他。",
+                w:"lyvy-一切 mykusju-回忆 nu-从句指示词 kinnon-死去的 vas-人 nan-是（接名词） tonlen-尝试 lution-参见 si-第三人称单数 no-的 vioven-数据 vinjon-直到（时间） ne-否定 lio-存在 lyvy-一切 vas-人 nu-从句指示词 mykusjon-记起 si-第三人称单数"
+            },
+            38:{
+                l:"nen, javin san lumen pa ven, pa hevynon tin ja [mesopetamija], ni pa venvos ja hivoshitua, san jusjon, su, mavin pa vas jamy teme melen.",
+                v:",,[],,,,.",
+                c:"但是，当我们面对一条留言，美索不达米亚的一块泥板，或者漂流瓶里的一张纸，我们知道，这里，曾经站着一个戴帽子的人。",
+                w:"nen-但是 javin-当…时 san-我们 lumen-看待 pa-1 ven-文字 pa-1 hevynon-泥土的 tin-墙壁/板子 ja-在 [mesopetamija]-美索不达米亚 ni-或 pa-1 venvos-白纸 ja-在 hivoshitua-漂流瓶 san-我们 jusjon-知道 su-这里 mavin-过去 pa-1 vas-人 jamy-穿着 teme-帽子 melen-进步"
+            }
+        };
+
+        var rediv = document.createElement("div");
+        rediv.id = "rediv";
+        document.body.appendChild(rediv);
+
+        var repage = document.createElement("button");
+        repage.id = "repage";
+        rediv.appendChild(repage);
+        repage.textContent = "回到主页";
+        repage.onclick = ()=>{
+            window.location.href="../main.html";
+        }
+
+        var relast = document.createElement("button");
+        relast.id = "relast";
+        rediv.appendChild(relast);
+        relast.textContent = "回到上一页";
+        relast.onclick = ()=>{
+            window.location.href="./main.html";
+        }
+
+        var translate = 1;
+
+        var titlediv = document.createElement("div");
+        titlediv.id = "titlediv";
+        document.body.appendChild(titlediv);
+
+        var thetitle = document.createElement("p")
+        thetitle.id = "thetitle";
+        thetitle.textContent = title;
+        titlediv.appendChild(thetitle);
+
+        var textdiv = document.createElement("div");
+        textdiv.id = "textdiv";
+        document.body.appendChild(textdiv);
+        
+
+        var translatestatebutton = document.createElement("button");
+        translatestatebutton.id = "translatestatebutton";
+        translatestatebutton.textContent = "关闭翻译";
+        function restate(){
+            if(translate == 1){
+                translate = 0;
+                rebuild();
+                translatestatebutton.textContent = "开启翻译";
+            }
+            else{
+                translate = 1;
+                rebuild();
+                translatestatebutton.textContent = "关闭翻译";
+            }
+            
+        }
+        translatestatebutton.onclick = ()=>{
+            restate();
+        }
+        document.body.appendChild(translatestatebutton);
+
+        function rebuild(){
+            textdiv.textContent = "";
+            if(translate == 1){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>\n${main[i].c}`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            if(translate == 0){
+                for(let i in main){
+                    var a = document.createElement("details");
+                    textdiv.appendChild(a);
+                    var b = document.createElement("summary");
+                    b.innerHTML = `${main[i].l}\n<span style="font-size:calc(0.8*var(--tenvys));overflow-wrap: break-word ;word-break:break-all">${main[i].v}</span>`;
+                    a.appendChild(b);
+                    var c = document.createElement("p");
+                    c.className = "word";
+                    c.textContent = main[i].w;
+                    a.appendChild(c);
+                }
+            }
+            
+        }
+
+        rebuild();
+    </script>
+</html>

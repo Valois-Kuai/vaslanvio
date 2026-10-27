@@ -148,10 +148,10 @@ body{
     bottom:0%;
     height:calc(2*var(--tenvys));
     width:calc(4.5*var(--tenvys));
-    border-color:rgba(255,0,0,1);
+    border-color:#D9C9A3;
     white-space:normal;
     padding:2px;
-    font-size:calc(0.3*var(--tenvys));
+
 }
 #kankin3:active{
     opacity:0.5 !important;

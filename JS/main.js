@@ -49,7 +49,7 @@ KanKin1.onclick=doc;
 KanKin2.onclick=qq;
 KanKin3.onclick=()=>{
     HuaTioMeVion1KosVion();
-    setTimeout(()=>{window.location.href="./game/room.html";},500);
+    setTimeout(()=>{window.location.href="./text/main.html";},500);
 }
 
 requestAnimationFrame(TuaVinKosTion);
