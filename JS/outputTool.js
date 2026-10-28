@@ -1,6 +1,6 @@
 const e = {};
 document.querySelectorAll('[id]').forEach(el => e[el.id] = el);
-const tvh = ["t","v","h","l","m","p","k","j","[","]",",",".",":","'",'"',"‘","’","“","”"];
+const tvh = ["t","v","h","l","m","p","k","j","[","]",",",".",":","'",'"',"‘","’","“","”","(",")"];
 const lelist={
     "ta": "00",
     "ti": "01",
@@ -239,6 +239,12 @@ e.t0.addEventListener("keydown",(event)=>{
                 }
                 else if(i=="'"){
                     output.push("'");
+                }
+                else if(i=="("){
+                    output.push("(");
+                }
+                else if(i==")"){
+                    output.push(")");
                 }
                 else{
                     e.ifhaveundefind.style.display="block";
