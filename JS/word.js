@@ -35,7 +35,7 @@ var attention = document.createElement("div");
 attention.id = "attention";
 document.body.appendChild(attention);
 
-attention.innerHTML = "注意：目前词汇表为v1.17版本";
+attention.innerHTML = "注意：目前词汇表为v1.18版本";
 
 var latindiv = [];
 
