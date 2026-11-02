@@ -154,7 +154,7 @@ e.ifhaveundefind.style.display = "none";
 e.t0.addEventListener("keydown",(event)=>{
     if(event.key=="Enter"){
         var temp = e.t0.value;
-        temp = temp.replace(/[“”‘’]/g,"'");
+        temp = temp.replace(/[“”‘’"]/g,"''");
         e.ifhaveundefind.style.display="none";
         if(/^[\x00-\x7F]*$/.test(temp) == 1){
             var output = [];
@@ -239,6 +239,9 @@ e.t0.addEventListener("keydown",(event)=>{
                 }
                 else if(i=="'"){
                     output.push("'");
+                }
+                else if(i=="''"){
+                    output.push("''");
                 }
                 else if(i=="("){
                     output.push("(");
