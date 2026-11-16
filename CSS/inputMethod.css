@@ -1,0 +1,69 @@
+body,input,button,#output{
+    font-family:"vaslanvio";
+    color:rgba(0,0,0,1);
+    letter-spacing:1px;
+    z-index:1;
+}
+
+html,body{
+    margin:0;
+    height:100%;
+}
+
+:root{
+   --size:clamp(16px,4vw,32px); 
+}
+
+#output{
+    position:relative;
+    width:90%;
+    left:5%;
+    border:black solid 2px;
+    min-height: calc(4*var(--size));
+    padding-top:4px;
+    padding-bottom:4px;
+    font-size: calc(0.8*var(--size));
+    resize:none;
+    margin-top: 2%;
+    max-height:30%;
+    overflow-y:auto;
+}
+#output:focus{
+    outline:none;
+}
+
+#inputbox{
+    position:relative;
+    width:90%;
+    left:5%;
+    border: #78a08c solid 4px;
+    aspect-ratio: 16 / 9;
+    max-height: 60%;
+    display:flex;
+    flex-direction:column;
+}
+
+.inputboxline{
+    flex: 1;
+    display:flex;
+    flex-direction:row;
+}
+
+.inputbutton{
+    flex:1;
+    border: none;
+    background: #96c8af;
+    box-shadow: 0 0 0 2px #78a08c;
+    color:white;
+    font-family: "vaslanvio";
+    font-size: calc(0.8*var(--size));
+    overflow: hidden;
+}
+
+button:active:not(:disabled){
+    opacity: 0.5 !important;
+}
+
+p{
+    text-align:center;
+}

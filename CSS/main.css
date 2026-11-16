@@ -130,7 +130,7 @@ body{
     border-color:rgba(255,255,255,0.5);
 }
 
-#kankin0{
+#grammar{
     top:calc(5 * var(--tenvys));
 }
 
@@ -194,7 +194,7 @@ body{
     animation-delay:1s;
     z-index:1;
 }
-#grammar{
+#kankin0{
     position:fixed;
     border-width:4px;
     right:0%;

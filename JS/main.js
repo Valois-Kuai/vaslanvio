@@ -66,7 +66,8 @@ wordonline.onclick=()=>{
 var grammar = document.createElement("button");
 grammar.id = "grammar";
 document.body.appendChild(grammar);
-grammar.textContent = "人类语语法";
+grammar.textContent = "语法文档";
+grammar.className = "kankin";
 grammar.onclick=()=>{
     blackdiv.style.animation = "black 0.5s ease-out forwards";
     setTimeout(()=>{window.location.href="./grammar.html";},500);
